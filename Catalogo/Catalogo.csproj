@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgregarArticulo.cs">
+    <Compile Include="EditorArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AgregarArticulo.Designer.cs">
-      <DependentUpon>AgregarArticulo.cs</DependentUpon>
+    <Compile Include="EditorArticulos.Designer.cs">
+      <DependentUpon>EditorArticulos.cs</DependentUpon>
     </Compile>
     <Compile Include="Categoria.cs" />
     <Compile Include="DetalleArticulo.cs">
@@ -65,22 +65,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModificarArticulo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModificarArticulo.Designer.cs">
-      <DependentUpon>ModificarArticulo.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Marca.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AgregarArticulo.resx">
-      <DependentUpon>AgregarArticulo.cs</DependentUpon>
+    <EmbeddedResource Include="EditorArticulos.resx">
+      <DependentUpon>EditorArticulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DetalleArticulo.resx">
       <DependentUpon>DetalleArticulo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ModificarArticulo.resx">
-      <DependentUpon>ModificarArticulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
