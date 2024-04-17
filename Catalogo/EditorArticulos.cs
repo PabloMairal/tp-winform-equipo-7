@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Catalogo
 {
-    public partial class AgregarArticulo : Form
+    public partial class EditorArticulos : Form
     {
-        public AgregarArticulo()
+        public EditorArticulos()
         {
             InitializeComponent();
         }
