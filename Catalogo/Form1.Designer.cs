@@ -109,6 +109,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mARCASToolStripMenuItem,
             this.cODIGOToolStripMenuItem});
@@ -120,6 +121,7 @@
             // 
             // mARCASToolStripMenuItem
             // 
+            this.mARCASToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.mARCASToolStripMenuItem.Name = "mARCASToolStripMenuItem";
             this.mARCASToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.mARCASToolStripMenuItem.Text = "MARCAS";
@@ -132,6 +134,7 @@
             // 
             // menuStrip2
             // 
+            this.menuStrip2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(1226, 24);
@@ -142,6 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1226, 824);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
