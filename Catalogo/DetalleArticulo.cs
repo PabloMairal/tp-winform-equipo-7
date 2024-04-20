@@ -12,9 +12,11 @@ namespace Catalogo
 {
     public partial class DetalleArticulo : Form
     {  
-        public DetalleArticulo()
+        private Articulo articulo;
+        public DetalleArticulo(Articulo art)
         {
             InitializeComponent();
+            articulo = art;
         }
         private void btnVolver_Click(object sender, EventArgs e)
         {
