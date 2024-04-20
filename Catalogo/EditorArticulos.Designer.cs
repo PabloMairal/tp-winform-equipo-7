@@ -49,14 +49,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(80, 42);
+            this.textBox1.Location = new System.Drawing.Point(450, 275);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(183, 20);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(80, 96);
+            this.textBox2.Location = new System.Drawing.Point(450, 329);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(183, 123);
@@ -64,28 +64,28 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(80, 259);
+            this.textBox3.Location = new System.Drawing.Point(450, 492);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(183, 20);
             this.textBox3.TabIndex = 2;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(80, 318);
+            this.textBox4.Location = new System.Drawing.Point(450, 551);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(183, 20);
             this.textBox4.TabIndex = 3;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(448, 41);
+            this.textBox5.Location = new System.Drawing.Point(818, 274);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(183, 20);
             this.textBox5.TabIndex = 4;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(448, 96);
+            this.pictureBox1.Location = new System.Drawing.Point(818, 329);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(183, 123);
             this.pictureBox1.TabIndex = 5;
@@ -93,7 +93,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(448, 258);
+            this.textBox6.Location = new System.Drawing.Point(818, 491);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(183, 20);
             this.textBox6.TabIndex = 6;
@@ -101,90 +101,117 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(80, 23);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.label1.Location = new System.Drawing.Point(446, 252);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(66, 19);
             this.label1.TabIndex = 7;
             this.label1.Text = "Nombre";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(80, 77);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.label2.Location = new System.Drawing.Point(446, 307);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(90, 19);
             this.label2.TabIndex = 8;
             this.label2.Text = "Descripcion";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(80, 240);
+            this.label3.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.label3.Location = new System.Drawing.Point(446, 470);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.Size = new System.Drawing.Size(50, 19);
             this.label3.TabIndex = 9;
             this.label3.Text = "Marca";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(80, 299);
+            this.label4.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.label4.Location = new System.Drawing.Point(446, 529);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.Size = new System.Drawing.Size(52, 19);
             this.label4.TabIndex = 10;
             this.label4.Text = "Precio";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(448, 22);
+            this.label5.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.label5.Location = new System.Drawing.Point(814, 252);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.Size = new System.Drawing.Size(59, 19);
             this.label5.TabIndex = 11;
             this.label5.Text = "Codigo";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(448, 77);
+            this.label6.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.label6.Location = new System.Drawing.Point(814, 307);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.Size = new System.Drawing.Size(78, 19);
             this.label6.TabIndex = 12;
             this.label6.Text = "Imagenes";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(448, 240);
+            this.label7.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.label7.Location = new System.Drawing.Point(814, 469);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.Size = new System.Drawing.Size(76, 19);
             this.label7.TabIndex = 13;
             this.label7.Text = "Categoria";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 13);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.button1.Location = new System.Drawing.Point(860, 614);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(39, 34);
+            this.button1.Size = new System.Drawing.Size(141, 26);
             this.button1.TabIndex = 14;
-            this.button1.Text = "Atras";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "Volver";
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(306, 367);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.button2.Location = new System.Drawing.Point(450, 614);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 48);
+            this.button2.Size = new System.Drawing.Size(141, 26);
             this.button2.TabIndex = 15;
-            this.button2.Text = "Agregar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Text = "Guardar";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // EditorArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.ClientSize = new System.Drawing.Size(1484, 861);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
@@ -201,8 +228,11 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.MaximumSize = new System.Drawing.Size(1500, 900);
+            this.MinimumSize = new System.Drawing.Size(1500, 900);
             this.Name = "EditorArticulos";
-            this.Text = "ModificarArticulo";
+            this.Text = "Editor de Articulos";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
