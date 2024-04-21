@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace Catalogo {
         public ListadoArticulos()
         {
             InitializeComponent();
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+
+
+            articuloNegocio.TestConnection();
+
         }
 
         public EventHandler OnEditorOpen;
