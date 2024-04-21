@@ -63,7 +63,7 @@ namespace Catalogo
             fixListadoArticulos();
             foreach (Form frm in this.MdiChildren)
             {
-                if (frm is DetalleArticulo || frm is EditorArticulos)
+                if (!(frm is ListadoArticulos))
                 {
                     frm.Close();
                 }
