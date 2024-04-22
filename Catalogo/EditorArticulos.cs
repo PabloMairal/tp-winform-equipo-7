@@ -14,7 +14,7 @@ namespace Catalogo
 {
     public partial class EditorArticulos : Form
     {
-        public Articulo Articulo { get; set; }
+        public Articulo Articulo = null;
         public EditorArticulos()
         {
             InitializeComponent();
@@ -25,12 +25,6 @@ namespace Catalogo
         {
             InitializeComponent();
             this.Articulo = art;
-            txtNombre.Text = art.Nombre;
-            txtDescripcion.Text = art.Descripcion;
-            txtCodigo.Text = art.Codigo.ToString();
-            txtMarca.Text = art.IdMarca.ToString();
-            txtCategoria.Text = art.IdCategoria.ToString();
-            txtPrecio.Text = art.Precio.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,8 +40,8 @@ namespace Catalogo
                 Articulo.Codigo = int.Parse(txtCodigo.Text);
                 Articulo.Nombre = txtNombre.Text;
                 Articulo.Descripcion = txtDescripcion.Text;
-                Articulo.Marca.Id = int.Parse(txtMarca.Text);
-                Articulo.Categoria.Id = int.Parse(txtCategoria.Text);
+                Articulo.Marca.Id = cboMarca.SelectedIndex;
+                Articulo.Categoria.Id = cboCategoria.SelectedIndex;
                 Articulo.Precio = decimal.Parse(txtPrecio.Text);
 
                 articuloNegocio.guardarArticulo(Articulo);
@@ -62,6 +56,27 @@ namespace Catalogo
             {
                 this.Close();
             }
+        }
+
+        private void EditorArticulos_Load(object sender, EventArgs e)
+        {
+            //cboMarca.DataSource = MarcaNegocio...
+            //cboMarca.ValueMember = "Id";
+            //cboMarca.DisplayMember = "Nombre";
+            //cboCategoria.DataSource = CategoriaNegocio...
+            //cboCategoria.ValueMember = "Id";
+            //cboCategoria.DisplayMember = "Nombre";
+            if (Articulo != null)
+            {
+                txtNombre.Text = Articulo.Nombre;
+                txtDescripcion.Text = Articulo.Descripcion;
+                //cboMarca.SelectedValue = Articulo.Marca.Id;
+                //cboCategoria.SelectedValue = Articulo.Categoria.Id;
+                txtCodigo.Text = Articulo.Codigo.ToString();
+                txtPrecio.Text = Articulo.Precio.ToString();
+
+            }
+
         }
     }
 }

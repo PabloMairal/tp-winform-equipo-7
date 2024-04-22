@@ -30,11 +30,9 @@
         {
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.picImagenes = new System.Windows.Forms.PictureBox();
-            this.txtCategoria = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
@@ -44,6 +42,8 @@
             this.lblCategoria = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.cboMarca = new System.Windows.Forms.ComboBox();
+            this.cboCategoria = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.picImagenes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,13 +61,6 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(183, 123);
             this.txtDescripcion.TabIndex = 1;
-            // 
-            // txtMarca
-            // 
-            this.txtMarca.Location = new System.Drawing.Point(450, 492);
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(183, 20);
-            this.txtMarca.TabIndex = 2;
             // 
             // txtPrecio
             // 
@@ -90,13 +83,6 @@
             this.picImagenes.Size = new System.Drawing.Size(183, 123);
             this.picImagenes.TabIndex = 5;
             this.picImagenes.TabStop = false;
-            // 
-            // txtCategoria
-            // 
-            this.txtCategoria.Location = new System.Drawing.Point(818, 491);
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(183, 20);
-            this.txtCategoria.TabIndex = 6;
             // 
             // lblNombre
             // 
@@ -207,12 +193,30 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // cboMarca
+            // 
+            this.cboMarca.FormattingEnabled = true;
+            this.cboMarca.Location = new System.Drawing.Point(450, 493);
+            this.cboMarca.Name = "cboMarca";
+            this.cboMarca.Size = new System.Drawing.Size(183, 21);
+            this.cboMarca.TabIndex = 16;
+            // 
+            // cboCategoria
+            // 
+            this.cboCategoria.FormattingEnabled = true;
+            this.cboCategoria.Location = new System.Drawing.Point(818, 492);
+            this.cboCategoria.Name = "cboCategoria";
+            this.cboCategoria.Size = new System.Drawing.Size(183, 21);
+            this.cboCategoria.TabIndex = 17;
+            // 
             // EditorArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.ClientSize = new System.Drawing.Size(1484, 861);
+            this.Controls.Add(this.cboCategoria);
+            this.Controls.Add(this.cboMarca);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lblCategoria);
@@ -222,11 +226,9 @@
             this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.txtCategoria);
             this.Controls.Add(this.picImagenes);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.txtPrecio);
-            this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtNombre);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -234,6 +236,7 @@
             this.MinimumSize = new System.Drawing.Size(1500, 900);
             this.Name = "EditorArticulos";
             this.Text = "Editor de Articulos";
+            this.Load += new System.EventHandler(this.EditorArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picImagenes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -247,7 +250,6 @@
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.PictureBox picImagenes;
-        private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblMarca;
@@ -257,6 +259,7 @@
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox txtMarca;
+        private System.Windows.Forms.ComboBox cboMarca;
+        private System.Windows.Forms.ComboBox cboCategoria;
     }
 }
