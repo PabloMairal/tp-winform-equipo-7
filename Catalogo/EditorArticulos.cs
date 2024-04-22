@@ -37,15 +37,27 @@ namespace Catalogo
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
-                Articulo.Codigo = int.Parse(txtCodigo.Text);
+                if(Articulo == null)
+                {
+                    Articulo = new Articulo();
+                }
+                Articulo.Codigo = txtCodigo.Text;
                 Articulo.Nombre = txtNombre.Text;
                 Articulo.Descripcion = txtDescripcion.Text;
-                Articulo.Marca.Id = cboMarca.SelectedIndex;
-                Articulo.Categoria.Id = cboCategoria.SelectedIndex;
+                //Articulo.Marca.Id = cboMarca.SelectedIndex;
+                //Articulo.Categoria.Id = cboCategoria.SelectedIndex;
                 Articulo.Precio = decimal.Parse(txtPrecio.Text);
 
+                if(Articulo.Id == 0)
+                {
                 articuloNegocio.guardarArticulo(Articulo);
                 MessageBox.Show("Articulo creado exitosamente");
+                }
+                else
+                {
+                    articuloNegocio.guardarArticulo(Articulo);
+                    MessageBox.Show("Articulo modificado exitosamente");
+                }
             }
             catch (Exception ex)
             {

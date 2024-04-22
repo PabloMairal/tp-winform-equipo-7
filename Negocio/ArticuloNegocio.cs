@@ -33,17 +33,25 @@ namespace Negocio
             }
         }
 
-        public void guardarArticulo(Articulo articulo)
+        public void guardarArticulo(Articulo Articulo)
         {
             try
-            { 
-                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) values (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio)");
-                datos.Comando.Parameters.AddWithValue("@Codigo", articulo.Codigo);
-                datos.Comando.Parameters.AddWithValue("@Nombre", articulo.Nombre);
-                datos.Comando.Parameters.AddWithValue("@Descripcion", articulo.Descripcion);
-                datos.Comando.Parameters.AddWithValue("@IdMarca", articulo.Marca.Id);
-                datos.Comando.Parameters.AddWithValue("@IdCategoria", articulo.Categoria.Id);
-                datos.Comando.Parameters.AddWithValue("@Precio", articulo.Precio);
+            {
+                if (Articulo.Id == 0)
+                {
+                    datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) values (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio)");
+                }
+                else
+                {
+                    datos.setearConsulta("Update ARTICULOS set Codigo = @Codigo, Nombre = '@Nombre', Descripcion = '@Descripcion', IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio where Id = @Id");
+                    datos.Comando.Parameters.AddWithValue("@Id", Articulo.Id);
+                }
+                datos.Comando.Parameters.AddWithValue("@Codigo", Articulo.Codigo);
+                datos.Comando.Parameters.AddWithValue("@Nombre", Articulo.Nombre);
+                datos.Comando.Parameters.AddWithValue("@Descripcion", Articulo.Descripcion);
+                datos.Comando.Parameters.AddWithValue("@IdMarca", Articulo.Marca.Id);
+                datos.Comando.Parameters.AddWithValue("@IdCategoria", Articulo.Categoria.Id);
+                datos.Comando.Parameters.AddWithValue("@Precio", Articulo.Precio);
                 datos.ejecutarAccion();
             } 
             catch (Exception ex)
@@ -51,7 +59,10 @@ namespace Negocio
                 Console.WriteLine(ex.Message);
                 throw;
             }
-            finally { datos.cerrarConexion();}
+            finally 
+            { 
+                datos.cerrarConexion();
+            }
         }
 
 
