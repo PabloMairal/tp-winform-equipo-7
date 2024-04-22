@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Catalogo
 {
-    internal class Marca
+    public class Marca
     {
         public Marca(int Id, string Nombre) { 
             this.Id = Id;

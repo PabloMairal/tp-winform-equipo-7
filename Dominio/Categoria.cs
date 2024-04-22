@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catalogo
 {
-    internal class Categoria
+    public class Categoria
     {
         public Categoria(int id, string nombre)
         {

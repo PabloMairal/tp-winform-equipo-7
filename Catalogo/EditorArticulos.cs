@@ -46,8 +46,8 @@ namespace Catalogo
                 Articulo.Codigo = int.Parse(txtCodigo.Text);
                 Articulo.Nombre = txtNombre.Text;
                 Articulo.Descripcion = txtDescripcion.Text;
-                Articulo.IdMarca = int.Parse(txtMarca.Text);
-                Articulo.IdCategoria = int.Parse(txtCategoria.Text);
+                Articulo.Marca.Id = int.Parse(txtMarca.Text);
+                Articulo.Categoria.Id = int.Parse(txtCategoria.Text);
                 Articulo.Precio = decimal.Parse(txtPrecio.Text);
 
                 articuloNegocio.guardarArticulo(Articulo);

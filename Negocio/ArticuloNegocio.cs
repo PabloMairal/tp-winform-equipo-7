@@ -41,8 +41,8 @@ namespace Negocio
                 datos.Comando.Parameters.AddWithValue("@Codigo", articulo.Codigo);
                 datos.Comando.Parameters.AddWithValue("@Nombre", articulo.Nombre);
                 datos.Comando.Parameters.AddWithValue("@Descripcion", articulo.Descripcion);
-                datos.Comando.Parameters.AddWithValue("@IdMarca", articulo.IdMarca);
-                datos.Comando.Parameters.AddWithValue("@IdCategoria", articulo.IdCategoria);
+                datos.Comando.Parameters.AddWithValue("@IdMarca", articulo.Marca.Id);
+                datos.Comando.Parameters.AddWithValue("@IdCategoria", articulo.Categoria.Id);
                 datos.Comando.Parameters.AddWithValue("@Precio", articulo.Precio);
                 datos.ejecutarAccion();
             } 
