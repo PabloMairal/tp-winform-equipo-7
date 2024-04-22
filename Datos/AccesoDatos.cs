@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Datos
 {
@@ -17,10 +18,14 @@ namespace Datos
         {
             get { return lector; }
         }
+        public SqlCommand Comando
+        {
+            get { return comando;}
+        }
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("Data Source=localhost,15000;Initial Catalog=CATALOGO_P3_DB;User Id=sa;Password=Pablo2846!;TrustServerCertificate=True");
+            conexion = new SqlConnection("server = .\\SQLEXPRESS; database = CATALOGO_P3_DB; integrated security = true");
             comando = new SqlCommand();
         }
 
@@ -40,6 +45,22 @@ namespace Datos
 
             }
             catch (Exception)
+            {
+                cerrarConexion();
+                throw;
+            }
+        }
+
+        public void ejecutarAccion()
+        {
+            try
+            {
+                conexion.Open();
+                comando.Connection = conexion;
+                comando.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
             {
                 cerrarConexion();
                 throw;

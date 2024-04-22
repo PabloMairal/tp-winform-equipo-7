@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,11 +25,43 @@ namespace Catalogo
         {
             InitializeComponent();
             this.Articulo = art;
+            txtNombre.Text = art.Nombre;
+            txtDescripcion.Text = art.Descripcion;
+            txtCodigo.Text = art.Codigo.ToString();
+            txtMarca.Text = art.IdMarca.ToString();
+            txtCategoria.Text = art.IdCategoria.ToString();
+            txtPrecio.Text = art.Precio.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            try
+            {
+                Articulo.Codigo = int.Parse(txtCodigo.Text);
+                Articulo.Nombre = txtNombre.Text;
+                Articulo.Descripcion = txtDescripcion.Text;
+                Articulo.IdMarca = int.Parse(txtMarca.Text);
+                Articulo.IdCategoria = int.Parse(txtCategoria.Text);
+                Articulo.Precio = decimal.Parse(txtPrecio.Text);
+
+                articuloNegocio.guardarArticulo(Articulo);
+                MessageBox.Show("Articulo creado exitosamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                throw;
+            }
+            finally
+            {
+                this.Close();
+            }
         }
     }
 }

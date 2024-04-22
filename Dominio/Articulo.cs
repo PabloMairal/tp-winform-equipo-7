@@ -14,23 +14,17 @@ namespace Catalogo
         }
 
         private int ID;
-        public int IDArt
-        {
-            get { return ID; }
-            set
-            {
-                if (value == IDArt)
-                    return;
-            }
-        }
+        public int Codigo { get; set; }
+
+        public string Nombre {  get; set; }
 
         public string Descripcion { get; set; }
         
-        public float Costo {  get; set; }
+        public int IdMarca { get; set; }
+        
+        public int IdCategoria {  get; set; }
 
-        public string Marca { get; set; }
-
-        public bool Estado { get; set; }
+        public decimal Precio { get; set; }
 
         
     }
