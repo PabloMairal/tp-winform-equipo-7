@@ -43,7 +43,7 @@ namespace Negocio
                 }
                 else
                 {
-                    datos.setearConsulta("Update ARTICULOS set Codigo = @Codigo, Nombre = '@Nombre', Descripcion = '@Descripcion', IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio where Id = @Id");
+                    datos.setearConsulta("Update ARTICULOS set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio where Id = @Id");
                     datos.Comando.Parameters.AddWithValue("@Id", Articulo.Id);
                 }
                 datos.Comando.Parameters.AddWithValue("@Codigo", Articulo.Codigo);
