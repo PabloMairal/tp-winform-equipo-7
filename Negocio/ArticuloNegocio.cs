@@ -69,6 +69,30 @@ namespace Negocio
                 throw;
             }
         }
+        public void GuardarImagenes(Articulo Articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                foreach (var Imagen in Articulo.Imagenes)
+                {
+                    datos.SetearConsulta("Insert into IMAGENES (IdArticulo, ImagenUrl) values (@IdArticulo, @ImagenUrl)");
+                    datos.SetearParametro("@IdArticulo", Articulo.Id);
+                    datos.SetearParametro("@ImagenUrl", Imagen);
+                    datos.EjecutarAccion();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+            
+        }
         public void guardarArticulo(Articulo Articulo)
         {
             try
@@ -88,7 +112,9 @@ namespace Negocio
                 datos.SetearParametro("@IdMarca", Articulo.Marca.Id);
                 datos.SetearParametro("@IdCategoria", Articulo.Categoria.Id);
                 datos.SetearParametro("@Precio", Articulo.Precio);
+                GuardarImagenes(Articulo);
                 datos.EjecutarAccion();
+
             } 
             catch (Exception ex)
             {
