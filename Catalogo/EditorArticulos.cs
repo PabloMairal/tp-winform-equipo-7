@@ -44,8 +44,8 @@ namespace Catalogo
                 Articulo.Codigo = txtCodigo.Text;
                 Articulo.Nombre = txtNombre.Text;
                 Articulo.Descripcion = txtDescripcion.Text;
-                //Articulo.Marca.Id = cboMarca.SelectedIndex;
-                //Articulo.Categoria.Id = cboCategoria.SelectedIndex;
+                Articulo.Marca = (Marca)cboMarca.SelectedItem;
+                Articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 Articulo.Precio = decimal.Parse(txtPrecio.Text);
 
                 if(Articulo.Id == 0)
@@ -76,21 +76,33 @@ namespace Catalogo
             cboMarca.DataSource = MarcaNegocio.ListarMarcas();
             cboMarca.ValueMember = "Id";
             cboMarca.DisplayMember = "Nombre";
-            //cboCategoria.DataSource = CategoriaNegocio...
-            //cboCategoria.ValueMember = "Id";
-            //cboCategoria.DisplayMember = "Nombre";
+            CategoriaNegocio CategoriaNegocio = new CategoriaNegocio();
+            cboCategoria.DataSource = CategoriaNegocio.ListarCategorias();
+            cboCategoria.ValueMember = "Id";
+            cboCategoria.DisplayMember = "Nombre";
             picImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
             if (Articulo != null)
             {
                 txtNombre.Text = Articulo.Nombre;
                 txtDescripcion.Text = Articulo.Descripcion;
-                //cboMarca.SelectedValue = Articulo.Marca.Id;
-                //cboCategoria.SelectedValue = Articulo.Categoria.Id;
+                cboMarca.SelectedValue = Articulo.Marca.Id;
+                cboCategoria.SelectedValue = Articulo.Categoria.Id;
                 txtCodigo.Text = Articulo.Codigo.ToString();
                 txtPrecio.Text = Articulo.Precio.ToString();
 
             }
 
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            //MarcasCategorias MarcasCategorias = new MarcasCategorias("Marca");
+            
+        }
+
+        private void btnEditarCategoria_Click(object sender, EventArgs e)
+        {
+            //MarcasCategorias MarcasCategorias = new MarcasCategorias("Categorias");
         }
     }
 }

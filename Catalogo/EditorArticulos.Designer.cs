@@ -44,6 +44,12 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.cboMarca = new System.Windows.Forms.ComboBox();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
+            this.btnEditarMarca = new System.Windows.Forms.Button();
+            this.btnEditarCategoria = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblUrl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picImagenes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,17 +70,17 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(450, 551);
+            this.txtPrecio.Location = new System.Drawing.Point(815, 550);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(183, 20);
-            this.txtPrecio.TabIndex = 3;
+            this.txtPrecio.TabIndex = 4;
             // 
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(818, 274);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(183, 20);
-            this.txtCodigo.TabIndex = 4;
+            this.txtCodigo.TabIndex = 5;
             // 
             // picImagenes
             // 
@@ -123,7 +129,7 @@
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblPrecio.Location = new System.Drawing.Point(446, 529);
+            this.lblPrecio.Location = new System.Drawing.Point(811, 528);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(52, 19);
             this.lblPrecio.TabIndex = 10;
@@ -156,7 +162,7 @@
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lblCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblCategoria.Location = new System.Drawing.Point(814, 469);
+            this.lblCategoria.Location = new System.Drawing.Point(445, 526);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(76, 19);
             this.lblCategoria.TabIndex = 13;
@@ -170,10 +176,10 @@
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnVolver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.btnVolver.Location = new System.Drawing.Point(842, 614);
+            this.btnVolver.Location = new System.Drawing.Point(815, 614);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(141, 26);
-            this.btnVolver.TabIndex = 14;
+            this.btnVolver.Size = new System.Drawing.Size(186, 26);
+            this.btnVolver.TabIndex = 11;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.button1_Click);
@@ -186,10 +192,10 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.btnGuardar.Location = new System.Drawing.Point(472, 614);
+            this.btnGuardar.Location = new System.Drawing.Point(450, 614);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(141, 26);
-            this.btnGuardar.TabIndex = 15;
+            this.btnGuardar.Size = new System.Drawing.Size(183, 26);
+            this.btnGuardar.TabIndex = 10;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -201,16 +207,72 @@
             this.cboMarca.Location = new System.Drawing.Point(450, 493);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(183, 21);
-            this.cboMarca.TabIndex = 16;
+            this.cboMarca.TabIndex = 2;
             // 
             // cboCategoria
             // 
             this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(818, 493);
+            this.cboCategoria.Location = new System.Drawing.Point(450, 550);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(183, 21);
-            this.cboCategoria.TabIndex = 17;
+            this.cboCategoria.TabIndex = 8;
+            // 
+            // btnEditarMarca
+            // 
+            this.btnEditarMarca.Location = new System.Drawing.Point(639, 491);
+            this.btnEditarMarca.Name = "btnEditarMarca";
+            this.btnEditarMarca.Size = new System.Drawing.Size(77, 23);
+            this.btnEditarMarca.TabIndex = 3;
+            this.btnEditarMarca.Text = "Editar";
+            this.btnEditarMarca.UseVisualStyleBackColor = true;
+            this.btnEditarMarca.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnEditarCategoria
+            // 
+            this.btnEditarCategoria.Location = new System.Drawing.Point(639, 550);
+            this.btnEditarCategoria.Name = "btnEditarCategoria";
+            this.btnEditarCategoria.Size = new System.Drawing.Size(75, 23);
+            this.btnEditarCategoria.TabIndex = 9;
+            this.btnEditarCategoria.Text = "Editar";
+            this.btnEditarCategoria.UseVisualStyleBackColor = true;
+            this.btnEditarCategoria.Click += new System.EventHandler(this.btnEditarCategoria_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(1007, 329);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(23, 123);
+            this.btnNext.TabIndex = 7;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(789, 329);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(23, 123);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "<";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(818, 493);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(183, 20);
+            this.textBox1.TabIndex = 14;
+            // 
+            // lblUrl
+            // 
+            this.lblUrl.AutoSize = true;
+            this.lblUrl.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lblUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.lblUrl.Location = new System.Drawing.Point(814, 470);
+            this.lblUrl.Name = "lblUrl";
+            this.lblUrl.Size = new System.Drawing.Size(30, 19);
+            this.lblUrl.TabIndex = 15;
+            this.lblUrl.Text = "Url";
             // 
             // EditorArticulos
             // 
@@ -218,6 +280,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.ClientSize = new System.Drawing.Size(1484, 861);
+            this.Controls.Add(this.lblUrl);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnEditarCategoria);
+            this.Controls.Add(this.btnEditarMarca);
             this.Controls.Add(this.cboCategoria);
             this.Controls.Add(this.cboMarca);
             this.Controls.Add(this.btnGuardar);
@@ -264,5 +332,11 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ComboBox cboMarca;
         private System.Windows.Forms.ComboBox cboCategoria;
+        private System.Windows.Forms.Button btnEditarMarca;
+        private System.Windows.Forms.Button btnEditarCategoria;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblUrl;
     }
 }

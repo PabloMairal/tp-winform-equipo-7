@@ -12,15 +12,32 @@ namespace Negocio
     {
         // Traer, subir, modificar base de datos
         private AccesoDatos datos = new AccesoDatos();
-        public void TestConnection()
-        {  
+        public List<Articulo> TestConnection()
+        {
+            List<Articulo> Articulos = new List<Articulo>();
             try
             {
-                datos.SetearConsulta("SELECT * FROM ARTICULOS");
+                datos.SetearConsulta("select a.Id, Codigo, Nombre, a.Descripcion as Descripcion,m.Id as IdMarca, m.Descripcion as Marca, c.Id as IdCategoria , c.Descripcion as Categoria, Precio from ARTICULOS a left join MARCAS m on a.IdMarca = m.Id left join CATEGORIAS c on a.IdCategoria = c.Id");
                 datos.EjecutarLectura();
                 while (datos.Lector.Read())
                 {
-                    Console.WriteLine(datos.Lector["Nombre"]);
+                    Articulo Articulo = new Articulo();
+                    Marca Marca = new Marca();
+                    Categoria Categoria = new Categoria();
+
+                    Articulo.Id = (int)datos.Lector["Id"];
+                    Articulo.Codigo = (string)datos.Lector["Codigo"];
+                    Articulo.Nombre = (string)datos.Lector["Nombre"];
+                    Articulo.Descripcion = (string)datos.Lector["Descripcion"];
+                    Marca.Id = (int)(datos.Lector["IdMarca"]);
+                    Marca.Nombre = (string)datos.Lector["Marca"];
+                    Articulo.Marca = Marca;
+                    Categoria.Id = (int)(datos.Lector["IdCategoria"]);
+                    Categoria.Nombre = (string)datos.Lector["Categoria"];
+                    Articulo.Categoria = Categoria;
+                    //BuscarImagenes(Articulo);
+                    Articulo.Precio = (decimal)datos.Lector["Precio"];
+                    Articulos.Add(Articulo);
                 }
             }
             catch (Exception ex)
@@ -31,8 +48,67 @@ namespace Negocio
             {
                 datos.CerrarConexion();
             }
+            return Articulos;
         }
 
+        public void BuscarMarca(Marca Marca)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta("SELECT [Descripcion] FROM [dbo].[MARCAS] WHERE [Id] = " + Marca.Id);
+                datos.EjecutarLectura();
+                Marca.Nombre = (string)datos.Lector["Descripcion"];
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public void BuscarCategoria(Categoria Categoria)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta("Select Descripcion from CATEGORIAS where ID = " + Categoria.Id);
+                datos.EjecutarLectura();
+                Categoria.Nombre = (string)datos.Lector["Descripcion"];
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public void BuscarImagenes(Articulo Articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta("Select I.UrlImagen From IMAGENES as I Inner Join ARTICULOS as A where I.IdArticulo = " +  Articulo.Id);
+                datos.EjecutarLectura();
+                while(datos.Lector.Read())
+                {
+                    Articulo.Imagenes.Add((string)datos.Lector["UrlImagen"]);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public void guardarArticulo(Articulo Articulo)
         {
             try

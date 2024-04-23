@@ -14,13 +14,13 @@ using Dominio;
 namespace Catalogo {
     public partial class ListadoArticulos : Form
     {
+        List<Articulo> Articulos = new List<Articulo>();
         public ListadoArticulos()
         {
             InitializeComponent();
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
 
-
-            articuloNegocio.TestConnection();
+            Articulos = articuloNegocio.TestConnection();
 
         }
 
@@ -50,6 +50,11 @@ namespace Catalogo {
         private void btnDetalles_Click(object sender, EventArgs e)
         {
             _OnDetailOpen(new CustomEventArgs { Articulo = new Articulo() });
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            _OnEditorOpen(new CustomEventArgs { Articulo = Articulos[0] });
         }
     }
 }

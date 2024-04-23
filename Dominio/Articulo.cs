@@ -23,7 +23,8 @@ namespace Dominio
         public Marca Marca { get; set; }
 
         public Categoria Categoria { get; set; }
-
+        
+        public List<string> Imagenes = new List<string>();
         public decimal Precio { get; set; }
 
         
