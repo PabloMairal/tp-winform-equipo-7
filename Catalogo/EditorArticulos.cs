@@ -72,12 +72,14 @@ namespace Catalogo
 
         private void EditorArticulos_Load(object sender, EventArgs e)
         {
-            //cboMarca.DataSource = MarcaNegocio...
-            //cboMarca.ValueMember = "Id";
-            //cboMarca.DisplayMember = "Nombre";
+            MarcaNegocio MarcaNegocio = new MarcaNegocio();
+            cboMarca.DataSource = MarcaNegocio.ListarMarcas();
+            cboMarca.ValueMember = "Id";
+            cboMarca.DisplayMember = "Nombre";
             //cboCategoria.DataSource = CategoriaNegocio...
             //cboCategoria.ValueMember = "Id";
             //cboCategoria.DisplayMember = "Nombre";
+            picImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
             if (Articulo != null)
             {
                 txtNombre.Text = Articulo.Nombre;
