@@ -26,19 +26,24 @@ namespace Datos
         public AccesoDatos()
         {
             // CONN PABLO M
-            conexion = new SqlConnection("server = .\\SQLEXPRESS; database = CATALOGO_P3_DB; integrated security = true");
+            //conexion = new SqlConnection("server = .\\SQLEXPRESS; database = CATALOGO_P3_DB; integrated security = true");
             // CONN PABLO P
-            //conexion = new SqlConnection("Data Source=localhost,15000;Initial Catalog=CATALOGO_P3_DB;User Id=sa;Password=Pablo2846!;TrustServerCertificate=True");
+            conexion = new SqlConnection("Data Source=localhost,15000;Initial Catalog=CATALOGO_P3_DB;User Id=sa;Password=Pablo2846!;TrustServerCertificate=True");
             comando = new SqlCommand();
         }
 
-        public void setearConsulta(string consulta)
+        public void SetearConsulta(string consulta)
         {
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = consulta;
         }
 
-        public void ejecutarLectura()
+        public void SetearParametro(string nombre, object valor)
+        {
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
+
+        public void EjecutarLectura()
         {
             comando.Connection = conexion;
             try
@@ -49,12 +54,12 @@ namespace Datos
             }
             catch (Exception)
             {
-                cerrarConexion();
+                CerrarConexion();
                 throw;
             }
         }
 
-        public void ejecutarAccion()
+        public void EjecutarAccion()
         {
             try
             {
@@ -65,12 +70,12 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                cerrarConexion();
+                CerrarConexion();
                 throw;
             }
         }
 
-        public void cerrarConexion()
+        public void CerrarConexion()
         {
             if (lector != null)
                 lector.Close();
