@@ -65,11 +65,23 @@
     <Compile Include="ListadoArticulos.Designer.cs">
       <DependentUpon>ListadoArticulos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLayer.cs">
+    <Compile Include="Layer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLayer.Designer.cs">
-      <DependentUpon>frmLayer.cs</DependentUpon>
+    <Compile Include="Layer.Designer.cs">
+      <DependentUpon>Layer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MarcasCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarcasCategorias.Designer.cs">
+      <DependentUpon>MarcasCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MarcasCategoriasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarcasCategoriasForm.Designer.cs">
+      <DependentUpon>MarcasCategoriasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,8 +94,14 @@
     <EmbeddedResource Include="ListadoArticulos.resx">
       <DependentUpon>ListadoArticulos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLayer.resx">
-      <DependentUpon>frmLayer.cs</DependentUpon>
+    <EmbeddedResource Include="Layer.resx">
+      <DependentUpon>Layer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarcasCategorias.resx">
+      <DependentUpon>MarcasCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarcasCategoriasForm.resx">
+      <DependentUpon>MarcasCategoriasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -18,7 +18,7 @@ namespace Catalogo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLayer());
+            Application.Run(new Layer());
         }
     }
 }

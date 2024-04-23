@@ -65,6 +65,24 @@ namespace Negocio
             }
         }
 
-
+        public bool ValidarArticulosPorMrcCtg(int id, string columna)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta("select Id from ARTICULOS where " + columna + "=@id");
+                datos.SetearParametro("@id", id);
+                datos.EjecutarLectura();
+                return !datos.Lector.Read();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
     }
 }

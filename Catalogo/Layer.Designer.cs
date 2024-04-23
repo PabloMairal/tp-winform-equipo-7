@@ -1,6 +1,6 @@
 ﻿namespace Catalogo
 {
-    partial class frmLayer
+    partial class Layer
     {
         /// <summary>
         /// Required designer variable.

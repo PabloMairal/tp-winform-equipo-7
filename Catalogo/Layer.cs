@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Catalogo
 {
-    public partial class frmLayer : Form
+    public partial class Layer : Form
     {
         ListadoArticulos frmListadoArticulos = new ListadoArticulos();
-        public frmLayer()
+        public Layer()
         {
             InitializeComponent();
             this.MaximizeBox = false;
