@@ -96,13 +96,15 @@ namespace Catalogo
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            //MarcasCategorias MarcasCategorias = new MarcasCategorias("Marca");
-            
+            MarcasCategorias MarcasCategorias = new MarcasCategorias("Marca");
+            MarcasCategorias.ShowDialog();
+
         }
 
         private void btnEditarCategoria_Click(object sender, EventArgs e)
         {
-            //MarcasCategorias MarcasCategorias = new MarcasCategorias("Categorias");
+            MarcasCategorias MarcasCategorias = new MarcasCategorias("Categorias");
+            MarcasCategorias.ShowDialog();
         }
     }
 }

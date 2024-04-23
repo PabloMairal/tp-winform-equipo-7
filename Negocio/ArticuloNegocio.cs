@@ -35,7 +35,7 @@ namespace Negocio
                     Categoria.Id = (int)(datos.Lector["IdCategoria"]);
                     Categoria.Nombre = (string)datos.Lector["Categoria"];
                     Articulo.Categoria = Categoria;
-                    //BuscarImagenes(Articulo);
+                    BuscarImagenes(Articulo);
                     Articulo.Precio = (decimal)datos.Lector["Precio"];
                     Articulos.Add(Articulo);
                 }
@@ -96,11 +96,11 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.SetearConsulta("Select I.UrlImagen From IMAGENES as I Inner Join ARTICULOS as A where I.IdArticulo = " +  Articulo.Id);
+                datos.SetearConsulta("Select I.ImagenUrl From IMAGENES I Inner Join ARTICULOS A ON IdArticulo = A.Id WHERE I.IdArticulo = " +  Articulo.Id);
                 datos.EjecutarLectura();
                 while(datos.Lector.Read())
                 {
-                    Articulo.Imagenes.Add((string)datos.Lector["UrlImagen"]);
+                    Articulo.Imagenes.Add((string)datos.Lector["ImagenUrl"]);
                 }
             }
             catch (Exception)
