@@ -32,7 +32,7 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.picImagenes = new System.Windows.Forms.PictureBox();
+            this.pbxImagenes = new System.Windows.Forms.PictureBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
@@ -48,9 +48,9 @@
             this.btnEditarCategoria = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtUrl = new System.Windows.Forms.TextBox();
             this.lblUrl = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.picImagenes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagenes)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -70,26 +70,26 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(815, 550);
+            this.txtPrecio.Location = new System.Drawing.Point(818, 550);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(183, 20);
-            this.txtPrecio.TabIndex = 4;
+            this.txtPrecio.TabIndex = 8;
             // 
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(818, 274);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(183, 20);
-            this.txtCodigo.TabIndex = 5;
+            this.txtCodigo.TabIndex = 4;
             // 
-            // picImagenes
+            // pbxImagenes
             // 
-            this.picImagenes.Location = new System.Drawing.Point(818, 329);
-            this.picImagenes.Name = "picImagenes";
-            this.picImagenes.Size = new System.Drawing.Size(183, 123);
-            this.picImagenes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picImagenes.TabIndex = 5;
-            this.picImagenes.TabStop = false;
+            this.pbxImagenes.Location = new System.Drawing.Point(818, 329);
+            this.pbxImagenes.Name = "pbxImagenes";
+            this.pbxImagenes.Size = new System.Drawing.Size(183, 123);
+            this.pbxImagenes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxImagenes.TabIndex = 5;
+            this.pbxImagenes.TabStop = false;
             // 
             // lblNombre
             // 
@@ -129,7 +129,7 @@
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblPrecio.Location = new System.Drawing.Point(811, 528);
+            this.lblPrecio.Location = new System.Drawing.Point(814, 528);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(52, 19);
             this.lblPrecio.TabIndex = 10;
@@ -179,7 +179,7 @@
             this.btnVolver.Location = new System.Drawing.Point(815, 614);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(186, 26);
-            this.btnVolver.TabIndex = 11;
+            this.btnVolver.TabIndex = 10;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.button1_Click);
@@ -195,7 +195,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(450, 614);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(183, 26);
-            this.btnGuardar.TabIndex = 10;
+            this.btnGuardar.TabIndex = 9;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -216,14 +216,14 @@
             this.cboCategoria.Location = new System.Drawing.Point(450, 550);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(183, 21);
-            this.cboCategoria.TabIndex = 8;
+            this.cboCategoria.TabIndex = 3;
             // 
             // btnEditarMarca
             // 
             this.btnEditarMarca.Location = new System.Drawing.Point(639, 491);
             this.btnEditarMarca.Name = "btnEditarMarca";
             this.btnEditarMarca.Size = new System.Drawing.Size(77, 23);
-            this.btnEditarMarca.TabIndex = 3;
+            this.btnEditarMarca.TabIndex = 11;
             this.btnEditarMarca.Text = "Editar";
             this.btnEditarMarca.UseVisualStyleBackColor = true;
             this.btnEditarMarca.Click += new System.EventHandler(this.btnEditar_Click);
@@ -233,7 +233,7 @@
             this.btnEditarCategoria.Location = new System.Drawing.Point(639, 550);
             this.btnEditarCategoria.Name = "btnEditarCategoria";
             this.btnEditarCategoria.Size = new System.Drawing.Size(75, 23);
-            this.btnEditarCategoria.TabIndex = 9;
+            this.btnEditarCategoria.TabIndex = 12;
             this.btnEditarCategoria.Text = "Editar";
             this.btnEditarCategoria.UseVisualStyleBackColor = true;
             this.btnEditarCategoria.Click += new System.EventHandler(this.btnEditarCategoria_Click);
@@ -243,7 +243,7 @@
             this.btnNext.Location = new System.Drawing.Point(1007, 329);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(23, 123);
-            this.btnNext.TabIndex = 7;
+            this.btnNext.TabIndex = 6;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
             // 
@@ -252,16 +252,17 @@
             this.button1.Location = new System.Drawing.Point(789, 329);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(23, 123);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 5;
             this.button1.Text = "<";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtUrl
             // 
-            this.textBox1.Location = new System.Drawing.Point(818, 493);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(183, 20);
-            this.textBox1.TabIndex = 14;
+            this.txtUrl.Location = new System.Drawing.Point(818, 493);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(183, 20);
+            this.txtUrl.TabIndex = 7;
+            this.txtUrl.Leave += new System.EventHandler(this.txtUrl_Leave);
             // 
             // lblUrl
             // 
@@ -281,7 +282,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.ClientSize = new System.Drawing.Size(1484, 861);
             this.Controls.Add(this.lblUrl);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtUrl);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnEditarCategoria);
@@ -297,7 +298,7 @@
             this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.picImagenes);
+            this.Controls.Add(this.pbxImagenes);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtDescripcion);
@@ -308,7 +309,7 @@
             this.Name = "EditorArticulos";
             this.Text = "Editor de Articulos";
             this.Load += new System.EventHandler(this.EditorArticulos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picImagenes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagenes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,7 +321,7 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.PictureBox picImagenes;
+        private System.Windows.Forms.PictureBox pbxImagenes;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblMarca;
@@ -336,7 +337,7 @@
         private System.Windows.Forms.Button btnEditarCategoria;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUrl;
         private System.Windows.Forms.Label lblUrl;
     }
 }

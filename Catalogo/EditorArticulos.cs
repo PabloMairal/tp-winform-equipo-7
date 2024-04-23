@@ -47,7 +47,7 @@ namespace Catalogo
                 Articulo.Marca = (Marca)cboMarca.SelectedItem;
                 Articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 Articulo.Precio = decimal.Parse(txtPrecio.Text);
-
+                Articulo.Imagenes.Add(txtUrl.Text);
                 if(Articulo.Id == 0)
                 {
                 articuloNegocio.guardarArticulo(Articulo);
@@ -80,7 +80,7 @@ namespace Catalogo
             cboCategoria.DataSource = CategoriaNegocio.ListarCategorias();
             cboCategoria.ValueMember = "Id";
             cboCategoria.DisplayMember = "Nombre";
-            picImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+            pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
             if (Articulo != null)
             {
                 txtNombre.Text = Articulo.Nombre;
@@ -89,7 +89,8 @@ namespace Catalogo
                 cboCategoria.SelectedValue = Articulo.Categoria.Id;
                 txtCodigo.Text = Articulo.Codigo.ToString();
                 txtPrecio.Text = Articulo.Precio.ToString();
-
+                pbxImagenes.Load(Articulo.Imagenes[0]);
+                txtUrl.Text = Articulo.Imagenes[0];
             }
 
         }
@@ -105,6 +106,18 @@ namespace Catalogo
         {
             MarcasCategorias MarcasCategorias = new MarcasCategorias("Categorias");
             MarcasCategorias.ShowDialog();
+        }
+
+        private void txtUrl_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                pbxImagenes.Load(txtUrl.Text);
+            }
+            catch (Exception ex)
+            {
+                pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+            }
         }
     }
 }
