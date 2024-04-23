@@ -51,46 +51,6 @@ namespace Negocio
             return Articulos;
         }
 
-        public void BuscarMarca(Marca Marca)
-        {
-            AccesoDatos datos = new AccesoDatos();
-            try
-            {
-                datos.SetearConsulta("SELECT [Descripcion] FROM [dbo].[MARCAS] WHERE [Id] = " + Marca.Id);
-                datos.EjecutarLectura();
-                Marca.Nombre = (string)datos.Lector["Descripcion"];
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                datos.CerrarConexion();
-            }
-        }
-
-        public void BuscarCategoria(Categoria Categoria)
-        {
-            AccesoDatos datos = new AccesoDatos();
-            try
-            {
-                datos.SetearConsulta("Select Descripcion from CATEGORIAS where ID = " + Categoria.Id);
-                datos.EjecutarLectura();
-                Categoria.Nombre = (string)datos.Lector["Descripcion"];
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                datos.CerrarConexion();
-            }
-        }
-
         public void BuscarImagenes(Articulo Articulo)
         {
             AccesoDatos datos = new AccesoDatos();
