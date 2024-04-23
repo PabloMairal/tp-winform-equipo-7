@@ -18,7 +18,6 @@ namespace Catalogo
         public EditorArticulos()
         {
             InitializeComponent();
-            this.Articulo = new Articulo();
         }
 
         public EditorArticulos(Articulo art)
