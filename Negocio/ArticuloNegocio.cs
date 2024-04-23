@@ -44,14 +44,14 @@ namespace Negocio
                 else
                 {
                     datos.SetearConsulta("Update ARTICULOS set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio where Id = @Id");
-                    datos.Comando.Parameters.AddWithValue("@Id", Articulo.Id);
+                    datos.SetearParametro("@Id", Articulo.Id);
                 }
-                datos.Comando.Parameters.AddWithValue("@Codigo", Articulo.Codigo);
-                datos.Comando.Parameters.AddWithValue("@Nombre", Articulo.Nombre);
-                datos.Comando.Parameters.AddWithValue("@Descripcion", Articulo.Descripcion);
-                datos.Comando.Parameters.AddWithValue("@IdMarca", Articulo.Marca.Id);
-                datos.Comando.Parameters.AddWithValue("@IdCategoria", Articulo.Categoria.Id);
-                datos.Comando.Parameters.AddWithValue("@Precio", Articulo.Precio);
+                datos.SetearParametro("@Codigo", Articulo.Codigo);
+                datos.SetearParametro("@Nombre", Articulo.Nombre);
+                datos.SetearParametro("@Descripcion", Articulo.Descripcion);
+                datos.SetearParametro("@IdMarca", Articulo.Marca.Id);
+                datos.SetearParametro("@IdCategoria", Articulo.Categoria.Id);
+                datos.SetearParametro("@Precio", Articulo.Precio);
                 datos.EjecutarAccion();
             } 
             catch (Exception ex)

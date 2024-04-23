@@ -81,6 +81,7 @@
             this.picImagenes.Location = new System.Drawing.Point(818, 329);
             this.picImagenes.Name = "picImagenes";
             this.picImagenes.Size = new System.Drawing.Size(183, 123);
+            this.picImagenes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picImagenes.TabIndex = 5;
             this.picImagenes.TabStop = false;
             // 
@@ -169,7 +170,7 @@
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnVolver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.btnVolver.Location = new System.Drawing.Point(860, 614);
+            this.btnVolver.Location = new System.Drawing.Point(842, 614);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(141, 26);
             this.btnVolver.TabIndex = 14;
@@ -185,7 +186,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.btnGuardar.Location = new System.Drawing.Point(450, 614);
+            this.btnGuardar.Location = new System.Drawing.Point(472, 614);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(141, 26);
             this.btnGuardar.TabIndex = 15;
@@ -195,6 +196,7 @@
             // 
             // cboMarca
             // 
+            this.cboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMarca.FormattingEnabled = true;
             this.cboMarca.Location = new System.Drawing.Point(450, 493);
             this.cboMarca.Name = "cboMarca";
@@ -203,8 +205,9 @@
             // 
             // cboCategoria
             // 
+            this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(818, 492);
+            this.cboCategoria.Location = new System.Drawing.Point(818, 493);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(183, 21);
             this.cboCategoria.TabIndex = 17;
