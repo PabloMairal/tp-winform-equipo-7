@@ -62,6 +62,30 @@ namespace Catalogo {
         private void btnModificar_Click(object sender, EventArgs e)
         {
             _OnEditorOpen(new CustomEventArgs { Articulo = Articulos[0] });
+
+        }
+
+        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = txtBuscador.Text;
+
+            if (filtro != "")
+            {
+                listaFiltrada = Articulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()));               
+            }
+            else
+            {
+                listaFiltrada = Articulos;
+            }
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = listaFiltrada;
         }
     }
 }

@@ -29,22 +29,18 @@
         {
             this.btnAgregarArticulo = new System.Windows.Forms.Button();
             this.txtBuscador = new System.Windows.Forms.TextBox();
-            this.txtItem = new System.Windows.Forms.TextBox();
             this.btnDetalles = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.mARCASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cODIGOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
-            this.menuStrip1.SuspendLayout();
+            this.lblFiltro = new System.Windows.Forms.Label();
+            this.btnFiltro = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregarArticulo
             // 
-            this.btnAgregarArticulo.Location = new System.Drawing.Point(450, 103);
+            this.btnAgregarArticulo.Location = new System.Drawing.Point(524, 103);
             this.btnAgregarArticulo.Name = "btnAgregarArticulo";
             this.btnAgregarArticulo.Size = new System.Drawing.Size(119, 29);
             this.btnAgregarArticulo.TabIndex = 0;
@@ -57,18 +53,11 @@
             // 
             this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscador.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtBuscador.Location = new System.Drawing.Point(166, 2);
+            this.txtBuscador.Location = new System.Drawing.Point(452, 25);
             this.txtBuscador.Name = "txtBuscador";
-            this.txtBuscador.Size = new System.Drawing.Size(852, 22);
+            this.txtBuscador.Size = new System.Drawing.Size(266, 22);
             this.txtBuscador.TabIndex = 3;
-            this.txtBuscador.Text = "Buscar Articulo";
-            // 
-            // txtItem
-            // 
-            this.txtItem.Location = new System.Drawing.Point(632, 108);
-            this.txtItem.Name = "txtItem";
-            this.txtItem.Size = new System.Drawing.Size(119, 20);
-            this.txtItem.TabIndex = 5;
+            this.txtBuscador.TextChanged += new System.EventHandler(this.txtBuscador_TextChanged);
             // 
             // btnDetalles
             // 
@@ -99,40 +88,6 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mARCASToolStripMenuItem,
-            this.cODIGOToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 24);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1226, 24);
-            this.menuStrip1.TabIndex = 9;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // mARCASToolStripMenuItem
-            // 
-            this.mARCASToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.mARCASToolStripMenuItem.Name = "mARCASToolStripMenuItem";
-            this.mARCASToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.mARCASToolStripMenuItem.Text = "MARCAS";
-            // 
-            // cODIGOToolStripMenuItem
-            // 
-            this.cODIGOToolStripMenuItem.Name = "cODIGOToolStripMenuItem";
-            this.cODIGOToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.cODIGOToolStripMenuItem.Text = "CODIGO";
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1226, 24);
-            this.menuStrip2.TabIndex = 10;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
             // dgvArticulos
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -145,27 +100,43 @@
             this.dgvArticulos.TabIndex = 11;
             this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
             // 
+            // lblFiltro
+            // 
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblFiltro.Location = new System.Drawing.Point(397, 29);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(29, 13);
+            this.lblFiltro.TabIndex = 12;
+            this.lblFiltro.Text = "Filtro";
+            // 
+            // btnFiltro
+            // 
+            this.btnFiltro.Location = new System.Drawing.Point(743, 24);
+            this.btnFiltro.Name = "btnFiltro";
+            this.btnFiltro.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltro.TabIndex = 13;
+            this.btnFiltro.Text = "Buscar";
+            this.btnFiltro.UseVisualStyleBackColor = true;
+            this.btnFiltro.Click += new System.EventHandler(this.btnFiltro_Click);
+            // 
             // ListadoArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1226, 824);
+            this.Controls.Add(this.btnFiltro);
+            this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnDetalles);
-            this.Controls.Add(this.txtItem);
             this.Controls.Add(this.txtBuscador);
             this.Controls.Add(this.btnAgregarArticulo);
-            this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.menuStrip2);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "ListadoArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -176,15 +147,12 @@
 
         private System.Windows.Forms.Button btnAgregarArticulo;
         private System.Windows.Forms.TextBox txtBuscador;
-        private System.Windows.Forms.TextBox txtItem;
         private System.Windows.Forms.Button btnDetalles;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem mARCASToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cODIGOToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvArticulos;
+        private System.Windows.Forms.Label lblFiltro;
+        private System.Windows.Forms.Button btnFiltro;
     }
 }
 
