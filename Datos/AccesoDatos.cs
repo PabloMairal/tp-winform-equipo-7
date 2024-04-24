@@ -60,26 +60,40 @@ namespace Datos
             }
         }
 
-        public int EjecutarAccion()
+        public void EjecutarAccion()
+        {
+            try
+            {
+                conexion.Open();
+                comando.Connection = conexion;
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { CerrarConexion(); }
+        }
+        public int BuscarUltimoId()
         {
             int Id;
             try
             {
                 conexion.Open();
                 comando.Connection = conexion;
-                comando.ExecuteNonQuery();
-                SqlCommand Identidad = new SqlCommand("Select MAX(Id) From ARTICULOS", conexion);
-                Id = Convert.ToInt32(Identidad.ExecuteScalar());
-
+                SetearConsulta("Select MAX(Id) From ARTICULOS");
+                Id = Convert.ToInt32(comando.ExecuteScalar());
             }
             catch (Exception ex)
             {
+                throw;
+            }
+            finally
+            {
                 CerrarConexion();
-                throw ex;
             }
             return Id;
         }
-
         public void CerrarConexion()
         {
             if (lector != null)

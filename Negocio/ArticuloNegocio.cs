@@ -112,7 +112,9 @@ namespace Negocio
                 datos.SetearParametro("@IdMarca", Articulo.Marca.Id);
                 datos.SetearParametro("@IdCategoria", Articulo.Categoria.Id);
                 datos.SetearParametro("@Precio", Articulo.Precio);
-                Articulo.Id = datos.EjecutarAccion();
+                datos.EjecutarAccion();
+                //Busca el Id del articulo creado para asignarlo a la imagen
+                Articulo.Id = datos.BuscarUltimoId();
                 GuardarImagenes(Articulo);
 
             } 

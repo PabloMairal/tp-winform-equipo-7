@@ -55,7 +55,10 @@ namespace Catalogo
                 Articulo.Marca = (Marca)cboMarca.SelectedItem;
                 Articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 Articulo.Precio = decimal.Parse(txtPrecio.Text);
-                Articulo.Imagenes.Add(txtUrl.Text);
+                if(txtUrl.Text != Articulo.Imagenes[0])
+                {
+                    Articulo.Imagenes.Add(txtUrl.Text);
+                }
                 
                 if(Articulo.Id == 0)
                 {
