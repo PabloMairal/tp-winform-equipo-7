@@ -20,7 +20,9 @@ namespace Catalogo {
             InitializeComponent();
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
 
-            Articulos = articuloNegocio.TestConnection();
+            Articulos = articuloNegocio.ListarArticulos();
+            ArticuloNegocio Negocio = new ArticuloNegocio();
+            dgvArticulos.DataSource = Negocio.ListarArticulos();
 
         }
 
@@ -42,10 +44,9 @@ namespace Catalogo {
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAgregarArticulo_Click(object sender, EventArgs e)
         {
             _OnEditorOpen(new CustomEventArgs { Articulo = null });
-
         }
 
         private void btnDetalles_Click(object sender, EventArgs e)

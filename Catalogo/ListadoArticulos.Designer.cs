@@ -51,7 +51,7 @@
             this.btnAgregarArticulo.Text = "Agregar";
             this.btnAgregarArticulo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAgregarArticulo.UseVisualStyleBackColor = true;
-            this.btnAgregarArticulo.Click += new System.EventHandler(this.button1_Click);
+            this.btnAgregarArticulo.Click += new System.EventHandler(this.btnAgregarArticulo_Click);
             // 
             // txtBuscador
             // 

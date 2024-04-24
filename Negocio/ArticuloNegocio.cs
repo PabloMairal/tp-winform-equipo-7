@@ -12,7 +12,7 @@ namespace Negocio
     {
         // Traer, subir, modificar base de datos
         private AccesoDatos datos = new AccesoDatos();
-        public List<Articulo> TestConnection()
+        public List<Articulo> ListarArticulos()
         {
             List<Articulo> Articulos = new List<Articulo>();
             try
@@ -38,6 +38,7 @@ namespace Negocio
                     BuscarImagenes(Articulo);
                     Articulo.Precio = (decimal)datos.Lector["Precio"];
                     Articulos.Add(Articulo);
+
                 }
             }
             catch (Exception ex)
