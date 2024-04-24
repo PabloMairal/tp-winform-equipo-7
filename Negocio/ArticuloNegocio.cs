@@ -85,7 +85,6 @@ namespace Negocio
             }
             catch (Exception)
             {
-
                 throw;
             }
             finally
@@ -100,7 +99,7 @@ namespace Negocio
             {
                 if (Articulo.Id == 0)
                 {
-                    datos.SetearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) values (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio)");
+                    datos.SetearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) values (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio) SELECT CAST(scope_identity() AS int)");
                 }
                 else
                 {
@@ -113,7 +112,6 @@ namespace Negocio
                 datos.SetearParametro("@IdMarca", Articulo.Marca.Id);
                 datos.SetearParametro("@IdCategoria", Articulo.Categoria.Id);
                 datos.SetearParametro("@Precio", Articulo.Precio);
-                datos.EjecutarAccion();
                 //Busca el Id del articulo creado para asignarlo a la imagen
                 Articulo.Id = datos.EjecutarScalar();
                 GuardarImagenes(Articulo);

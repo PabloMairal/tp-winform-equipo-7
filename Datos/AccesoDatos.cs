@@ -76,18 +76,21 @@ namespace Datos
         }
         public int EjecutarScalar()
         {
+            comando.Connection = conexion;
+
             try
             {
-                conexion.Open();
-                comando.Connection = conexion;
+                if (conexion.State != System.Data.ConnectionState.Open)
+                    conexion.Open();
                 return (int)comando.ExecuteScalar();
             }
             catch (Exception ex)
             {
-                CerrarConexion();
+                conexion.Close();
                 throw ex;
             }
         }
+
         public void CerrarConexion()
         {
             if (lector != null)

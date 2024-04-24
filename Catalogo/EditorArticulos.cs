@@ -55,7 +55,7 @@ namespace Catalogo
                 Articulo.Marca = (Marca)cboMarca.SelectedItem;
                 Articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 Articulo.Precio = decimal.Parse(txtPrecio.Text);
-                if(txtUrl.Text != Articulo.Imagenes[0])
+                if(txtUrl.Text != "")
                 {
                     Articulo.Imagenes.Add(txtUrl.Text);
                 }
@@ -131,5 +131,6 @@ namespace Catalogo
                 pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
             }
         }
+
     }
 }
