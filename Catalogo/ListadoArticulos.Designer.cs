@@ -29,7 +29,6 @@
         {
             this.btnAgregarArticulo = new System.Windows.Forms.Button();
             this.txtBuscador = new System.Windows.Forms.TextBox();
-            this.lvArticulos = new System.Windows.Forms.ListView();
             this.txtItem = new System.Windows.Forms.TextBox();
             this.btnDetalles = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -38,7 +37,9 @@
             this.mARCASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cODIGOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregarArticulo
@@ -61,16 +62,6 @@
             this.txtBuscador.Size = new System.Drawing.Size(852, 22);
             this.txtBuscador.TabIndex = 3;
             this.txtBuscador.Text = "Buscar Articulo";
-            // 
-            // lvArticulos
-            // 
-            this.lvArticulos.HideSelection = false;
-            this.lvArticulos.Location = new System.Drawing.Point(220, 187);
-            this.lvArticulos.Name = "lvArticulos";
-            this.lvArticulos.Size = new System.Drawing.Size(730, 394);
-            this.lvArticulos.TabIndex = 4;
-            this.lvArticulos.UseCompatibleStateImageBehavior = false;
-            this.lvArticulos.View = System.Windows.Forms.View.List;
             // 
             // txtItem
             // 
@@ -142,17 +133,29 @@
             this.menuStrip2.TabIndex = 10;
             this.menuStrip2.Text = "menuStrip2";
             // 
+            // dgvArticulos
+            // 
+            this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvArticulos.Location = new System.Drawing.Point(220, 186);
+            this.dgvArticulos.MultiSelect = false;
+            this.dgvArticulos.Name = "dgvArticulos";
+            this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvArticulos.Size = new System.Drawing.Size(730, 426);
+            this.dgvArticulos.TabIndex = 11;
+            this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
+            // 
             // ListadoArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1226, 824);
+            this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnDetalles);
             this.Controls.Add(this.txtItem);
-            this.Controls.Add(this.lvArticulos);
             this.Controls.Add(this.txtBuscador);
             this.Controls.Add(this.btnAgregarArticulo);
             this.Controls.Add(this.menuStrip1);
@@ -163,6 +166,7 @@
             this.Text = " ";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,7 +176,6 @@
 
         private System.Windows.Forms.Button btnAgregarArticulo;
         private System.Windows.Forms.TextBox txtBuscador;
-        private System.Windows.Forms.ListView lvArticulos;
         private System.Windows.Forms.TextBox txtItem;
         private System.Windows.Forms.Button btnDetalles;
         private System.Windows.Forms.Button btnModificar;
@@ -181,6 +184,7 @@
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem mARCASToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cODIGOToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dgvArticulos;
     }
 }
 

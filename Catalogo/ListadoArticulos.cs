@@ -45,11 +45,17 @@ namespace Catalogo {
         private void button1_Click(object sender, EventArgs e)
         {
             _OnEditorOpen(new CustomEventArgs { Articulo = null });
+
         }
 
         private void btnDetalles_Click(object sender, EventArgs e)
         {
             _OnDetailOpen(new CustomEventArgs { Articulo = new Articulo() });
+        }
+
+        private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
