@@ -10,11 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using System.Net;
+using System.Text.RegularExpressions;
 
 namespace Catalogo
 {
     public partial class EditorArticulos : Form
     {
+        int ImagenActual = 0;
         public Articulo Articulo = null;
         public EditorArticulos()
         {
@@ -101,8 +104,15 @@ namespace Catalogo
                 cboCategoria.SelectedValue = Articulo.Categoria.Id;
                 txtCodigo.Text = Articulo.Codigo.ToString();
                 txtPrecio.Text = Articulo.Precio.ToString();
-                pbxImagenes.Load(Articulo.Imagenes[0]);
-                txtUrl.Text = Articulo.Imagenes[0];
+                try
+                {
+                    txtUrl.Text = Articulo.Imagenes[0];
+                    pbxImagenes.Load(txtUrl.Text);
+                }
+                catch (Exception)
+                {
+                    pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+                }
             }
 
         }
@@ -132,5 +142,44 @@ namespace Catalogo
             }
         }
 
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            ImagenActual += 1;
+            if (ImagenActual < Articulo.Imagenes.Count)
+            {
+                txtUrl.Text = Articulo.Imagenes[ImagenActual];
+                try
+                {
+                    pbxImagenes.Load(txtUrl.Text);
+                }
+                catch (Exception)
+                {
+                    pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+                }
+            }
+            else
+            {
+                pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+                txtUrl.Text = "";
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            if(ImagenActual != 0)
+            {
+                ImagenActual -= 1;
+
+                txtUrl.Text = Articulo.Imagenes[ImagenActual];
+                try
+                {
+                    pbxImagenes.Load(txtUrl.Text);
+                }
+                catch (Exception)
+                {
+                    pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+                }
+            }
+        }
     }
 }

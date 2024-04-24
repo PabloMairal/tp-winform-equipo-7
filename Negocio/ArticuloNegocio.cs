@@ -72,12 +72,12 @@ namespace Negocio
         }
         public void GuardarImagenes(Articulo Articulo)
         {
-            AccesoDatos datos = new AccesoDatos();
             try
             {
                 foreach (var Imagen in Articulo.Imagenes)
-                {
-                    datos.SetearConsulta("Insert into IMAGENES (IdArticulo, ImagenUrl) values (@IdArticulo, @ImagenUrl)");
+                { 
+                    AccesoDatos datos = new AccesoDatos();
+                    datos.SetearConsulta("Insert into IMAGENES (IdArticulo, ImagenUrl) values (@IdArticulo, @ImagenUrl) ");
                     datos.SetearParametro("@IdArticulo", Articulo.Id);
                     datos.SetearParametro("@ImagenUrl", Imagen);
                     datos.EjecutarAccion();
@@ -85,13 +85,9 @@ namespace Negocio
             }
             catch (Exception)
             {
+                datos.CerrarConexion();
                 throw;
             }
-            finally
-            {
-                datos.CerrarConexion();
-            }
-            
         }
         public void guardarArticulo(Articulo Articulo)
         {
@@ -103,7 +99,7 @@ namespace Negocio
                 }
                 else
                 {
-                    datos.SetearConsulta("Update ARTICULOS set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio where Id = @Id");
+                    datos.SetearConsulta("Update ARTICULOS set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio OUTPUT INSERTED.Id where Id = @Id ");
                     datos.SetearParametro("@Id", Articulo.Id);
                 }
                 datos.SetearParametro("@Codigo", Articulo.Codigo);

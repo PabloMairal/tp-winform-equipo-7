@@ -19,10 +19,8 @@ namespace Catalogo {
         {
             InitializeComponent();
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-
             Articulos = articuloNegocio.ListarArticulos();
-            ArticuloNegocio Negocio = new ArticuloNegocio();
-            dgvArticulos.DataSource = Negocio.ListarArticulos();
+            dgvArticulos.DataSource = Articulos;
 
         }
 
@@ -61,7 +59,7 @@ namespace Catalogo {
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            _OnEditorOpen(new CustomEventArgs { Articulo = Articulos[0] });
+            _OnEditorOpen(new CustomEventArgs { Articulo = (Articulo)dgvArticulos.CurrentRow.DataBoundItem });
 
         }
 

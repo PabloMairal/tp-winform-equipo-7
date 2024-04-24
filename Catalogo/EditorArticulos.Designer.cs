@@ -47,7 +47,7 @@
             this.btnEditarMarca = new System.Windows.Forms.Button();
             this.btnEditarCategoria = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.lblUrl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagenes)).BeginInit();
@@ -246,15 +246,17 @@
             this.btnNext.TabIndex = 6;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // button1
+            // btnBack
             // 
-            this.button1.Location = new System.Drawing.Point(789, 329);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(23, 123);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "<";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBack.Location = new System.Drawing.Point(789, 329);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(23, 123);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "<";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // txtUrl
             // 
@@ -283,7 +285,7 @@
             this.ClientSize = new System.Drawing.Size(1484, 861);
             this.Controls.Add(this.lblUrl);
             this.Controls.Add(this.txtUrl);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnEditarCategoria);
             this.Controls.Add(this.btnEditarMarca);
@@ -336,7 +338,7 @@
         private System.Windows.Forms.Button btnEditarMarca;
         private System.Windows.Forms.Button btnEditarCategoria;
         private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.TextBox txtUrl;
         private System.Windows.Forms.Label lblUrl;
     }

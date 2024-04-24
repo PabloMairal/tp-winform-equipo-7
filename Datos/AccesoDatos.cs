@@ -73,6 +73,10 @@ namespace Datos
                 CerrarConexion();
                 throw ex;
             }
+            finally
+            {
+                CerrarConexion();
+            }
         }
         public int EjecutarScalar()
         {
