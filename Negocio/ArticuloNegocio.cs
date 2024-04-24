@@ -112,8 +112,8 @@ namespace Negocio
                 datos.SetearParametro("@IdMarca", Articulo.Marca.Id);
                 datos.SetearParametro("@IdCategoria", Articulo.Categoria.Id);
                 datos.SetearParametro("@Precio", Articulo.Precio);
+                Articulo.Id = datos.EjecutarAccion();
                 GuardarImagenes(Articulo);
-                datos.EjecutarAccion();
 
             } 
             catch (Exception ex)

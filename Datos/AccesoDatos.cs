@@ -60,13 +60,16 @@ namespace Datos
             }
         }
 
-        public void EjecutarAccion()
+        public int EjecutarAccion()
         {
+            int Id;
             try
             {
                 conexion.Open();
                 comando.Connection = conexion;
                 comando.ExecuteNonQuery();
+                SqlCommand Identidad = new SqlCommand("Select MAX(Id) From ARTICULOS", conexion);
+                Id = Convert.ToInt32(Identidad.ExecuteScalar());
 
             }
             catch (Exception ex)
@@ -74,6 +77,7 @@ namespace Datos
                 CerrarConexion();
                 throw ex;
             }
+            return Id;
         }
 
         public void CerrarConexion()

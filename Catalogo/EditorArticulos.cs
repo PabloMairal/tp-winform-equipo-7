@@ -37,6 +37,14 @@ namespace Catalogo
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
+                //if(string.IsNullOrWhiteSpace(txtCodigo.Text) ||
+                //   string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                //   string.IsNullOrWhiteSpace(txtDescripcion.Text) ||
+                //   string.IsNullOrWhiteSpace(txtPrecio.Text))
+                //{
+                //    MessageBox.Show("Por favor complete todos los campos");
+                //    return;
+                //}
                 if(Articulo == null)
                 {
                     Articulo = new Articulo();
@@ -48,6 +56,7 @@ namespace Catalogo
                 Articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 Articulo.Precio = decimal.Parse(txtPrecio.Text);
                 Articulo.Imagenes.Add(txtUrl.Text);
+                
                 if(Articulo.Id == 0)
                 {
                 articuloNegocio.guardarArticulo(Articulo);
