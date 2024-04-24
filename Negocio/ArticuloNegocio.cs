@@ -115,7 +115,7 @@ namespace Negocio
                 datos.SetearParametro("@Precio", Articulo.Precio);
                 datos.EjecutarAccion();
                 //Busca el Id del articulo creado para asignarlo a la imagen
-                Articulo.Id = datos.BuscarUltimoId();
+                Articulo.Id = datos.EjecutarScalar();
                 GuardarImagenes(Articulo);
 
             } 

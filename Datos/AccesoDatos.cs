@@ -53,10 +53,10 @@ namespace Datos
                 lector = comando.ExecuteReader();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 CerrarConexion();
-                throw;
+                throw ex;
             }
         }
 
@@ -70,29 +70,23 @@ namespace Datos
             }
             catch (Exception ex)
             {
+                CerrarConexion();
                 throw ex;
             }
-            finally { CerrarConexion(); }
         }
-        public int BuscarUltimoId()
+        public int EjecutarScalar()
         {
-            int Id;
             try
             {
                 conexion.Open();
                 comando.Connection = conexion;
-                SetearConsulta("Select MAX(Id) From ARTICULOS");
-                Id = Convert.ToInt32(comando.ExecuteScalar());
+                return (int)comando.ExecuteScalar();
             }
             catch (Exception ex)
             {
-                throw;
-            }
-            finally
-            {
                 CerrarConexion();
+                throw ex;
             }
-            return Id;
         }
         public void CerrarConexion()
         {
