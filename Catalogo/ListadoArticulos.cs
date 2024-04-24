@@ -20,7 +20,9 @@ namespace Catalogo {
             InitializeComponent();
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
 
-            Articulos = articuloNegocio.TestConnection();
+            Articulos = articuloNegocio.ListarArticulos();
+            ArticuloNegocio Negocio = new ArticuloNegocio();
+            dgvArticulos.DataSource = Negocio.ListarArticulos();
 
         }
 
@@ -42,7 +44,7 @@ namespace Catalogo {
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAgregarArticulo_Click(object sender, EventArgs e)
         {
             _OnEditorOpen(new CustomEventArgs { Articulo = null });
         }
@@ -52,9 +54,38 @@ namespace Catalogo {
             _OnDetailOpen(new CustomEventArgs { Articulo = new Articulo() });
         }
 
+        private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void btnModificar_Click(object sender, EventArgs e)
         {
             _OnEditorOpen(new CustomEventArgs { Articulo = Articulos[0] });
+
+        }
+
+        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = txtBuscador.Text;
+
+            if (filtro != "")
+            {
+                listaFiltrada = Articulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()));               
+            }
+            else
+            {
+                listaFiltrada = Articulos;
+            }
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = listaFiltrada;
         }
     }
 }
