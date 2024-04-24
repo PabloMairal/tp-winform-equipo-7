@@ -61,7 +61,7 @@ namespace Catalogo {
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            _OnEditorOpen(new CustomEventArgs { Articulo = Articulos[0] });
+            _OnEditorOpen(new CustomEventArgs { Articulo = (Articulo)dgvArticulos.CurrentRow.DataBoundItem });
 
         }
 
