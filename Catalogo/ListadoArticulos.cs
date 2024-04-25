@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 using Dominio;
+using System.Diagnostics.Eventing.Reader;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Datos;
 
 namespace Catalogo {
     public partial class ListadoArticulos : Form
@@ -42,6 +45,14 @@ namespace Catalogo {
             }
         }
 
+        private void ListadoArticulos_Load(object sender, EventArgs e)
+        {
+            cboCampo.Items.Add("Nombre");
+            cboCampo.Items.Add("Marca");
+            cboCampo.Items.Add("Categoria");
+            cboCampo.Items.Add("Precio");
+        }
+
         private void btnAgregarArticulo_Click(object sender, EventArgs e)
         {
             _OnEditorOpen(new CustomEventArgs { Articulo = null });
@@ -65,17 +76,12 @@ namespace Catalogo {
 
         private void txtBuscador_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnFiltro_Click(object sender, EventArgs e)
-        {
             List<Articulo> listaFiltrada;
             string filtro = txtBuscador.Text;
 
-            if (filtro != "")
+            if (filtro.Length >= 2)
             {
-                listaFiltrada = Articulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()));               
+                listaFiltrada = Articulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) /*|| x.Marca.Nombre.ToUpper().Contains(filtro.ToUpper)*/);
             }
             else
             {
@@ -84,6 +90,45 @@ namespace Catalogo {
 
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = listaFiltrada;
+        }
+
+        
+
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio Articulos = new ArticuloNegocio();
+            try
+            {
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtFiltroAvanzado.Text;
+                dgvArticulos.DataSource = Articulos.filtrar(campo, criterio, filtro);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
+        }
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = cboCampo.SelectedItem.ToString();
+            if(opcion == "Nombre")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
+            }
+            else
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Mayor a");
+                cboCriterio.Items.Add("Menor a");
+                cboCriterio.Items.Add("Igual a");
+            } 
         }
     }
 }

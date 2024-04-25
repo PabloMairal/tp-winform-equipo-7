@@ -136,7 +136,7 @@ namespace Catalogo
             {
                 pbxImagenes.Load(txtUrl.Text);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
             }

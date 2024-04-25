@@ -28,7 +28,10 @@ namespace Dominio
         public List<string> Imagenes = new List<string>();
         public decimal Precio { get; set; }
 
-        
+        public void Add(Articulo articulo)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
   

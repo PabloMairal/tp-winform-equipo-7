@@ -124,6 +124,107 @@ namespace Negocio
             }
         }
 
+        public List<Articulo> filtrar(string campo, string criterio, string filtro, AccesoDatos accesoDatos)
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta = "select a.Id, Codigo, Nombre, a.Descripcion as Descripcion,m.Id as IdMarca, m.Descripcion as Marca, c.Id as IdCategoria , c.Descripcion as Categoria, Precio from ARTICULOS a left join MARCAS m on a.IdMarca = m.Id left join CATEGORIAS c on a.IdCategoria = c.Id AND ";
+                if (campo == "Nombre")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "Nombre like '" + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta += "Nombre like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "Nombre like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                else if (campo == "Marca")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "m.Descripcion like '" + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta += "m.Descripcion like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "m.Descripcion like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                else if (campo == "Categoria")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "c.Descripcion like '" + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta += "c.Descripcion like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "c.Descripcion like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (criterio)
+                    {
+                        case "Mayor a":
+                            consulta += "Codigo > " + filtro;
+                            break;
+                        case "Menor a":
+                            consulta += "Codigo < " + filtro;
+                            break;
+                        default:
+                            consulta += "Codigo = " + filtro;
+                            break;
+                    }
+                }
+
+                datos.SetearConsulta(consulta);
+                datos.EjecutarAccion();
+                while (datos.Lector.Read())
+                {
+                    Articulo Articulo = new Articulo();
+                    Marca Marca = new Marca();
+                    Categoria Categoria = new Categoria();
+
+                    Articulo.Id = (int)datos.Lector["Id"];
+                    Articulo.Codigo = (string)datos.Lector["Codigo"];
+                    Articulo.Nombre = (string)datos.Lector["Nombre"];
+                    Articulo.Descripcion = (string)datos.Lector["Descripcion"];
+                    Marca.Id = (int)(datos.Lector["IdMarca"]);
+                    Marca.Nombre = (string)datos.Lector["Marca"];
+                    Articulo.Marca = Marca;
+                    Categoria.Id = (int)(datos.Lector["IdCategoria"]);
+                    Categoria.Nombre = (string)datos.Lector["Categoria"];
+                    Articulo.Categoria = Categoria;
+                    BuscarImagenes(Articulo);
+                    Articulo.Precio = (decimal)datos.Lector["Precio"];
+                    Articulo.Add(Articulo);
+
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public bool ValidarArticulosPorMrcCtg(int id, string columna)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -142,6 +243,11 @@ namespace Negocio
             {
                 datos.CerrarConexion();
             }
+        }
+
+        public object filtrar(string campo, string criterio, string filtro)
+        {
+            throw new NotImplementedException();
         }
     }
 }
