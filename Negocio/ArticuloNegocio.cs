@@ -74,14 +74,14 @@ namespace Negocio
         {
             try
             {
-                //foreach (var Imagen in Articulo.Imagenes)
-                //{
-                    AccesoDatos datos = new AccesoDatos();
+                AccesoDatos datos = new AccesoDatos();
+                if (Articulo.Imagenes[ImagenActual] != "")
+                {
                     datos.SetearConsulta("Insert into IMAGENES (IdArticulo, ImagenUrl) values (@IdArticulo, @ImagenUrl) ");
                     datos.SetearParametro("@IdArticulo", Articulo.Id);
                     datos.SetearParametro("@ImagenUrl", Articulo.Imagenes[ImagenActual]);
                     datos.EjecutarAccion();
-                //}
+                }
             }
             catch (Exception)
             {
