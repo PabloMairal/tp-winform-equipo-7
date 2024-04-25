@@ -15,7 +15,7 @@ namespace Dominio
         public string Nombre { get; set; }
         public override string ToString()
         {
-            return $"{Id} - {Nombre}";
+            return Nombre;
         }
     }
 }
