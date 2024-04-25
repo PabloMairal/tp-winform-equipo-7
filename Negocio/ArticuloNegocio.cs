@@ -70,16 +70,16 @@ namespace Negocio
                 throw;
             }
         }
-        public void GuardarImagenes(Articulo Articulo, int ImagenActual)
+        public void GuardarImagenes(int Id, string Imagen)
         {
             try
             {
                 AccesoDatos datos = new AccesoDatos();
-                if (Articulo.Imagenes[ImagenActual] != "")
+                if (Imagen != "")
                 {
                     datos.SetearConsulta("Insert into IMAGENES (IdArticulo, ImagenUrl) values (@IdArticulo, @ImagenUrl) ");
-                    datos.SetearParametro("@IdArticulo", Articulo.Id);
-                    datos.SetearParametro("@ImagenUrl", Articulo.Imagenes[ImagenActual]);
+                    datos.SetearParametro("@IdArticulo", Id);
+                    datos.SetearParametro("@ImagenUrl", Imagen);
                     datos.EjecutarAccion();
                 }
             }
@@ -110,7 +110,11 @@ namespace Negocio
                 datos.SetearParametro("@Precio", Articulo.Precio);
                 //Busca el Id del articulo creado para asignarlo a la imagen
                 Articulo.Id = datos.EjecutarScalar();
-                //GuardarImagenes(Articulo);
+                EliminarImagenes(Articulo);
+                foreach (var Imagen in Articulo.Imagenes)
+                {
+                    GuardarImagenes(Articulo.Id, Imagen);
+                }
 
             } 
             catch (Exception ex)
@@ -144,14 +148,14 @@ namespace Negocio
             }
         }
 
-        public void EliminarImagen(Articulo Articulo, int ImagenActual)
+        public void EliminarImagenes(Articulo Articulo)
         {
+            AccesoDatos accesoDatos = new AccesoDatos();
             try
             {
-                datos.SetearConsulta("Delete From IMAGENES where IDArticulo = @Id and ImagenUrl = @ImagenUrl");
-                datos.SetearParametro("Id", Articulo.Id);
-                datos.SetearParametro("ImagenUrl", Articulo.Imagenes[ImagenActual]);
-                datos.EjecutarAccion();
+                accesoDatos.SetearConsulta("Delete From IMAGENES where IDArticulo = @Id");
+                accesoDatos.SetearParametro("Id", Articulo.Id);
+                accesoDatos.EjecutarAccion();
             }
             catch (Exception ex)
             {
@@ -159,8 +163,10 @@ namespace Negocio
             }
             finally
             {
-                datos.CerrarConexion();
+                accesoDatos.CerrarConexion();
             }
         }
+
+
     }
 }

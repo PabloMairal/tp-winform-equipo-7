@@ -59,10 +59,6 @@ namespace Catalogo
                 Articulo.Marca = (Marca)cboMarca.SelectedItem;
                 Articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 Articulo.Precio = decimal.Parse(txtPrecio.Text);
-                //if(txtUrl.Text != "")
-                //{
-                //    Articulo.Imagenes.Add(txtUrl.Text);
-                //}
                 
                 if(Articulo.Id == 0)
                 {
@@ -115,6 +111,11 @@ namespace Catalogo
                     pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
                 }
             }
+            else
+            {
+                Articulo = new Articulo();
+            }
+
 
         }
 
@@ -131,17 +132,6 @@ namespace Catalogo
             MarcasCategorias.ShowDialog();
         }
 
-        private void txtUrl_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                pbxImagenes.Load(txtUrl.Text);
-            }
-            catch (Exception ex)
-            {
-                pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
-            }
-        }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
@@ -184,40 +174,29 @@ namespace Catalogo
             }
         }
 
-        private void btnGuardarFoto_Click(object sender, EventArgs e)
-        {
-            ArticuloNegocio ArticuloNegocio = new ArticuloNegocio();
-            if(txtUrl.Text != "" && !(Articulo.Imagenes.Contains(txtUrl.Text)))
-            {
-                Articulo.Imagenes.Add(txtUrl.Text);
-                ArticuloNegocio.GuardarImagenes(Articulo, ImagenActual);
-            }
-        }
-
         private void btnEliminarFoto_Click(object sender, EventArgs e)
         {
             ArticuloNegocio ArticuloNegocio = new ArticuloNegocio();
 
             try
             {
-                if(ImagenActual != 0 && ImagenActual < Articulo.Imagenes.Count)
+                if (ImagenActual != 0 && ImagenActual < Articulo.Imagenes.Count)
                 {
-                    ArticuloNegocio.EliminarImagen(Articulo, ImagenActual);
                     Articulo.Imagenes.Remove(txtUrl.Text);
                     ImagenActual -= 1;
                     txtUrl.Text = Articulo.Imagenes[ImagenActual];
                     pbxImagenes.Load(Articulo.Imagenes[ImagenActual]);
                 }
-                else if(ImagenActual == 0 && Articulo.Imagenes.Count > 1)
+                else if (ImagenActual == 0 && Articulo.Imagenes.Count > 1)
                 {
-                    ArticuloNegocio.EliminarImagen(Articulo, ImagenActual);
+
                     Articulo.Imagenes.Remove(txtUrl.Text);
                     txtUrl.Text = Articulo.Imagenes[ImagenActual];
                     pbxImagenes.Load(Articulo.Imagenes[ImagenActual]);
                 }
-                else if(ImagenActual == 0 && Articulo.Imagenes.Count == 1)
+                else if (ImagenActual == 0 && Articulo.Imagenes.Count == 1)
                 {
-                    ArticuloNegocio.EliminarImagen(Articulo, ImagenActual);
+
                     Articulo.Imagenes.Remove(txtUrl.Text);
                     txtUrl.Text = "";
                     pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
@@ -233,6 +212,37 @@ namespace Catalogo
                 Console.WriteLine(ex.Message);
             }
 
+        }
+
+        private void txtUrl_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                pbxImagenes.Load(txtUrl.Text);
+            }
+            catch (Exception ex)
+            {
+                pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+            }
+        }
+
+        private void txtUrl_Leave(object sender, EventArgs e)
+        {
+            if (txtUrl.Text != "" && !(Articulo.Imagenes.Contains(txtUrl.Text))
+                && Articulo.Imagenes.Count == 0)
+            {
+                Articulo.Imagenes.Add(txtUrl.Text);
+            }
+            else if (txtUrl.Text != "" && !(Articulo.Imagenes.Contains(txtUrl.Text))
+                && ImagenActual < Articulo.Imagenes.Count)
+            {
+                Articulo.Imagenes[ImagenActual] = txtUrl.Text;
+            }
+            else if(txtUrl.Text != "" && !(Articulo.Imagenes.Contains(txtUrl.Text))
+                && ImagenActual == Articulo.Imagenes.Count)
+            {
+                Articulo.Imagenes.Add(txtUrl.Text);
+            }
         }
     }
 }
