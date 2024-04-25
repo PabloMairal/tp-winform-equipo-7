@@ -40,6 +40,7 @@ namespace Catalogo
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
+                //Validaciones campos obligatorios
                 //if(string.IsNullOrWhiteSpace(txtCodigo.Text) ||
                 //   string.IsNullOrWhiteSpace(txtNombre.Text) ||
                 //   string.IsNullOrWhiteSpace(txtDescripcion.Text) ||
@@ -58,10 +59,10 @@ namespace Catalogo
                 Articulo.Marca = (Marca)cboMarca.SelectedItem;
                 Articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 Articulo.Precio = decimal.Parse(txtPrecio.Text);
-                if(txtUrl.Text != "")
-                {
-                    Articulo.Imagenes.Add(txtUrl.Text);
-                }
+                //if(txtUrl.Text != "")
+                //{
+                //    Articulo.Imagenes.Add(txtUrl.Text);
+                //}
                 
                 if(Articulo.Id == 0)
                 {
@@ -179,6 +180,22 @@ namespace Catalogo
                 {
                     pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
                 }
+            }
+        }
+
+        private void btnGuardarFoto_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio ArticuloNegocio = new ArticuloNegocio();
+            Articulo.Imagenes.Add(txtUrl.Text);
+            ArticuloNegocio.GuardarImagenes(Articulo, ImagenActual);
+        }
+
+        private void btnEliminarFoto_Click(object sender, EventArgs e)
+        {
+            if(ImagenActual != 0)
+            {
+                ImagenActual -= 1;
+                txtUrl.Text = Articulo.Imagenes[ImagenActual];
             }
         }
     }

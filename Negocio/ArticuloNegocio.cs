@@ -70,18 +70,18 @@ namespace Negocio
                 throw;
             }
         }
-        public void GuardarImagenes(Articulo Articulo)
+        public void GuardarImagenes(Articulo Articulo, int ImagenActual)
         {
             try
             {
-                foreach (var Imagen in Articulo.Imagenes)
-                { 
+                //foreach (var Imagen in Articulo.Imagenes)
+                //{
                     AccesoDatos datos = new AccesoDatos();
                     datos.SetearConsulta("Insert into IMAGENES (IdArticulo, ImagenUrl) values (@IdArticulo, @ImagenUrl) ");
                     datos.SetearParametro("@IdArticulo", Articulo.Id);
-                    datos.SetearParametro("@ImagenUrl", Imagen);
+                    datos.SetearParametro("@ImagenUrl", Articulo.Imagenes[ImagenActual]);
                     datos.EjecutarAccion();
-                }
+                //}
             }
             catch (Exception)
             {
@@ -110,7 +110,7 @@ namespace Negocio
                 datos.SetearParametro("@Precio", Articulo.Precio);
                 //Busca el Id del articulo creado para asignarlo a la imagen
                 Articulo.Id = datos.EjecutarScalar();
-                GuardarImagenes(Articulo);
+                //GuardarImagenes(Articulo);
 
             } 
             catch (Exception ex)
@@ -137,6 +137,24 @@ namespace Negocio
             catch (Exception)
             {
                 return false;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public void EliminarImagen(Articulo Articulo)
+        {
+            try
+            {
+                datos.SetearConsulta("Delete From IMAGENES where IDArticulo = @Id");
+                datos.SetearParametro("Id", Articulo.Id);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
             finally
             {

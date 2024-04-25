@@ -50,6 +50,8 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.lblUrl = new System.Windows.Forms.Label();
+            this.btnGuardarFoto = new System.Windows.Forms.Button();
+            this.btnEliminarFoto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagenes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,15 +67,15 @@
             this.txtDescripcion.Location = new System.Drawing.Point(450, 329);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(183, 123);
+            this.txtDescripcion.Size = new System.Drawing.Size(183, 169);
             this.txtDescripcion.TabIndex = 1;
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(818, 550);
+            this.txtPrecio.Location = new System.Drawing.Point(818, 582);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(183, 20);
-            this.txtPrecio.TabIndex = 8;
+            this.txtPrecio.TabIndex = 6;
             // 
             // txtCodigo
             // 
@@ -118,7 +120,7 @@
             this.lblMarca.AutoSize = true;
             this.lblMarca.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lblMarca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblMarca.Location = new System.Drawing.Point(446, 470);
+            this.lblMarca.Location = new System.Drawing.Point(446, 501);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(50, 19);
             this.lblMarca.TabIndex = 9;
@@ -129,7 +131,7 @@
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblPrecio.Location = new System.Drawing.Point(814, 528);
+            this.lblPrecio.Location = new System.Drawing.Point(814, 560);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(52, 19);
             this.lblPrecio.TabIndex = 10;
@@ -162,7 +164,7 @@
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lblCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblCategoria.Location = new System.Drawing.Point(445, 526);
+            this.lblCategoria.Location = new System.Drawing.Point(445, 557);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(76, 19);
             this.lblCategoria.TabIndex = 13;
@@ -176,10 +178,10 @@
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnVolver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.btnVolver.Location = new System.Drawing.Point(815, 614);
+            this.btnVolver.Location = new System.Drawing.Point(450, 619);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(186, 26);
-            this.btnVolver.TabIndex = 10;
+            this.btnVolver.TabIndex = 8;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.button1_Click);
@@ -192,11 +194,11 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.btnGuardar.Location = new System.Drawing.Point(450, 614);
+            this.btnGuardar.Location = new System.Drawing.Point(818, 619);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(183, 26);
-            this.btnGuardar.TabIndex = 9;
-            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.Text = "Guardar Articulo";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -204,7 +206,7 @@
             // 
             this.cboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMarca.FormattingEnabled = true;
-            this.cboMarca.Location = new System.Drawing.Point(450, 493);
+            this.cboMarca.Location = new System.Drawing.Point(450, 524);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(183, 21);
             this.cboMarca.TabIndex = 2;
@@ -213,27 +215,27 @@
             // 
             this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(450, 550);
+            this.cboCategoria.Location = new System.Drawing.Point(450, 581);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(183, 21);
             this.cboCategoria.TabIndex = 3;
             // 
             // btnEditarMarca
             // 
-            this.btnEditarMarca.Location = new System.Drawing.Point(639, 491);
+            this.btnEditarMarca.Location = new System.Drawing.Point(639, 522);
             this.btnEditarMarca.Name = "btnEditarMarca";
             this.btnEditarMarca.Size = new System.Drawing.Size(77, 23);
-            this.btnEditarMarca.TabIndex = 11;
+            this.btnEditarMarca.TabIndex = 9;
             this.btnEditarMarca.Text = "Editar";
             this.btnEditarMarca.UseVisualStyleBackColor = true;
             this.btnEditarMarca.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEditarCategoria
             // 
-            this.btnEditarCategoria.Location = new System.Drawing.Point(639, 550);
+            this.btnEditarCategoria.Location = new System.Drawing.Point(639, 581);
             this.btnEditarCategoria.Name = "btnEditarCategoria";
             this.btnEditarCategoria.Size = new System.Drawing.Size(75, 23);
-            this.btnEditarCategoria.TabIndex = 12;
+            this.btnEditarCategoria.TabIndex = 10;
             this.btnEditarCategoria.Text = "Editar";
             this.btnEditarCategoria.UseVisualStyleBackColor = true;
             this.btnEditarCategoria.Click += new System.EventHandler(this.btnEditarCategoria_Click);
@@ -243,7 +245,7 @@
             this.btnNext.Location = new System.Drawing.Point(1007, 329);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(23, 123);
-            this.btnNext.TabIndex = 6;
+            this.btnNext.TabIndex = 12;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -253,17 +255,17 @@
             this.btnBack.Location = new System.Drawing.Point(789, 329);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(23, 123);
-            this.btnBack.TabIndex = 5;
+            this.btnBack.TabIndex = 11;
             this.btnBack.Text = "<";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // txtUrl
             // 
-            this.txtUrl.Location = new System.Drawing.Point(818, 493);
+            this.txtUrl.Location = new System.Drawing.Point(818, 525);
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(183, 20);
-            this.txtUrl.TabIndex = 7;
+            this.txtUrl.TabIndex = 5;
             this.txtUrl.Leave += new System.EventHandler(this.txtUrl_Leave);
             // 
             // lblUrl
@@ -271,11 +273,31 @@
             this.lblUrl.AutoSize = true;
             this.lblUrl.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lblUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblUrl.Location = new System.Drawing.Point(814, 470);
+            this.lblUrl.Location = new System.Drawing.Point(814, 502);
             this.lblUrl.Name = "lblUrl";
             this.lblUrl.Size = new System.Drawing.Size(30, 19);
             this.lblUrl.TabIndex = 15;
             this.lblUrl.Text = "Url";
+            // 
+            // btnGuardarFoto
+            // 
+            this.btnGuardarFoto.Location = new System.Drawing.Point(818, 469);
+            this.btnGuardarFoto.Name = "btnGuardarFoto";
+            this.btnGuardarFoto.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardarFoto.TabIndex = 16;
+            this.btnGuardarFoto.Text = "Guardar foto";
+            this.btnGuardarFoto.UseVisualStyleBackColor = true;
+            this.btnGuardarFoto.Click += new System.EventHandler(this.btnGuardarFoto_Click);
+            // 
+            // btnEliminarFoto
+            // 
+            this.btnEliminarFoto.Location = new System.Drawing.Point(913, 469);
+            this.btnEliminarFoto.Name = "btnEliminarFoto";
+            this.btnEliminarFoto.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarFoto.TabIndex = 17;
+            this.btnEliminarFoto.Text = "Eliminar foto";
+            this.btnEliminarFoto.UseVisualStyleBackColor = true;
+            this.btnEliminarFoto.Click += new System.EventHandler(this.btnEliminarFoto_Click);
             // 
             // EditorArticulos
             // 
@@ -283,6 +305,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.ClientSize = new System.Drawing.Size(1484, 861);
+            this.Controls.Add(this.btnEliminarFoto);
+            this.Controls.Add(this.btnGuardarFoto);
             this.Controls.Add(this.lblUrl);
             this.Controls.Add(this.txtUrl);
             this.Controls.Add(this.btnBack);
@@ -341,5 +365,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.TextBox txtUrl;
         private System.Windows.Forms.Label lblUrl;
+        private System.Windows.Forms.Button btnGuardarFoto;
+        private System.Windows.Forms.Button btnEliminarFoto;
     }
 }
