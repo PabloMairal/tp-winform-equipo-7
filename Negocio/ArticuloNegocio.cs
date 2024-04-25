@@ -144,12 +144,13 @@ namespace Negocio
             }
         }
 
-        public void EliminarImagen(Articulo Articulo)
+        public void EliminarImagen(Articulo Articulo, int ImagenActual)
         {
             try
             {
-                datos.SetearConsulta("Delete From IMAGENES where IDArticulo = @Id");
+                datos.SetearConsulta("Delete From IMAGENES where IDArticulo = @Id and ImagenUrl = @ImagenUrl");
                 datos.SetearParametro("Id", Articulo.Id);
+                datos.SetearParametro("ImagenUrl", Articulo.Imagenes[ImagenActual]);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)

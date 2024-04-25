@@ -193,24 +193,41 @@ namespace Catalogo
 
         private void btnEliminarFoto_Click(object sender, EventArgs e)
         {
-                Articulo.Imagenes.Remove(txtUrl.Text);
-            if(ImagenActual != 0 && ImagenActual < Articulo.Imagenes.Count)
-            {
-                ImagenActual -= 1;
-                txtUrl.Text = Articulo.Imagenes[ImagenActual];
-                pbxImagenes.Load(Articulo.Imagenes[ImagenActual]);
+            ArticuloNegocio ArticuloNegocio = new ArticuloNegocio();
 
-            }
-            else if(ImagenActual == 0 && Articulo.Imagenes.Count > 1)
+            try
             {
-                
-                txtUrl.Text = Articulo.Imagenes[ImagenActual];
-                pbxImagenes.Load(Articulo.Imagenes[ImagenActual]);
+                if(ImagenActual != 0 && ImagenActual < Articulo.Imagenes.Count)
+                {
+                    ArticuloNegocio.EliminarImagen(Articulo, ImagenActual);
+                    Articulo.Imagenes.Remove(txtUrl.Text);
+                    ImagenActual -= 1;
+                    txtUrl.Text = Articulo.Imagenes[ImagenActual];
+                    pbxImagenes.Load(Articulo.Imagenes[ImagenActual]);
+                }
+                else if(ImagenActual == 0 && Articulo.Imagenes.Count > 1)
+                {
+                    ArticuloNegocio.EliminarImagen(Articulo, ImagenActual);
+                    Articulo.Imagenes.Remove(txtUrl.Text);
+                    txtUrl.Text = Articulo.Imagenes[ImagenActual];
+                    pbxImagenes.Load(Articulo.Imagenes[ImagenActual]);
+                }
+                else if(ImagenActual == 0 && Articulo.Imagenes.Count == 1)
+                {
+                    ArticuloNegocio.EliminarImagen(Articulo, ImagenActual);
+                    Articulo.Imagenes.Remove(txtUrl.Text);
+                    txtUrl.Text = "";
+                    pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+                }
+                else
+                {
+                    txtUrl.Text = "";
+                    pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                txtUrl.Text = "";
-                pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+                Console.WriteLine(ex.Message);
             }
 
         }
