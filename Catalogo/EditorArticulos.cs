@@ -40,6 +40,7 @@ namespace Catalogo
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
+                //Validaciones campos obligatorios
                 //if(string.IsNullOrWhiteSpace(txtCodigo.Text) ||
                 //   string.IsNullOrWhiteSpace(txtNombre.Text) ||
                 //   string.IsNullOrWhiteSpace(txtDescripcion.Text) ||
@@ -58,10 +59,10 @@ namespace Catalogo
                 Articulo.Marca = (Marca)cboMarca.SelectedItem;
                 Articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 Articulo.Precio = decimal.Parse(txtPrecio.Text);
-                if(txtUrl.Text != "")
-                {
-                    Articulo.Imagenes.Add(txtUrl.Text);
-                }
+                //if(txtUrl.Text != "")
+                //{
+                //    Articulo.Imagenes.Add(txtUrl.Text);
+                //}
                 
                 if(Articulo.Id == 0)
                 {
@@ -144,9 +145,9 @@ namespace Catalogo
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            ImagenActual += 1;
-            if (ImagenActual < Articulo.Imagenes.Count)
+            if (ImagenActual < Articulo.Imagenes.Count -1)
             {
+                ImagenActual += 1;
                 txtUrl.Text = Articulo.Imagenes[ImagenActual];
                 try
                 {
@@ -157,8 +158,9 @@ namespace Catalogo
                     pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
                 }
             }
-            else
+            else if (ImagenActual == Articulo.Imagenes.Count -1)
             {
+                ImagenActual += 1;
                 pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
                 txtUrl.Text = "";
             }
@@ -180,6 +182,57 @@ namespace Catalogo
                     pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
                 }
             }
+        }
+
+        private void btnGuardarFoto_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio ArticuloNegocio = new ArticuloNegocio();
+            if(txtUrl.Text != "")
+            {
+                Articulo.Imagenes.Add(txtUrl.Text);
+                ArticuloNegocio.GuardarImagenes(Articulo, ImagenActual);
+            }
+        }
+
+        private void btnEliminarFoto_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio ArticuloNegocio = new ArticuloNegocio();
+
+            try
+            {
+                if(ImagenActual != 0 && ImagenActual < Articulo.Imagenes.Count)
+                {
+                    ArticuloNegocio.EliminarImagen(Articulo, ImagenActual);
+                    Articulo.Imagenes.Remove(txtUrl.Text);
+                    ImagenActual -= 1;
+                    txtUrl.Text = Articulo.Imagenes[ImagenActual];
+                    pbxImagenes.Load(Articulo.Imagenes[ImagenActual]);
+                }
+                else if(ImagenActual == 0 && Articulo.Imagenes.Count > 1)
+                {
+                    ArticuloNegocio.EliminarImagen(Articulo, ImagenActual);
+                    Articulo.Imagenes.Remove(txtUrl.Text);
+                    txtUrl.Text = Articulo.Imagenes[ImagenActual];
+                    pbxImagenes.Load(Articulo.Imagenes[ImagenActual]);
+                }
+                else if(ImagenActual == 0 && Articulo.Imagenes.Count == 1)
+                {
+                    ArticuloNegocio.EliminarImagen(Articulo, ImagenActual);
+                    Articulo.Imagenes.Remove(txtUrl.Text);
+                    txtUrl.Text = "";
+                    pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+                }
+                else
+                {
+                    txtUrl.Text = "";
+                    pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
         }
     }
 }
