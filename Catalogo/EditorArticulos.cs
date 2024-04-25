@@ -187,8 +187,11 @@ namespace Catalogo
         private void btnGuardarFoto_Click(object sender, EventArgs e)
         {
             ArticuloNegocio ArticuloNegocio = new ArticuloNegocio();
-            Articulo.Imagenes.Add(txtUrl.Text);
-            ArticuloNegocio.GuardarImagenes(Articulo, ImagenActual);
+            if(txtUrl.Text != "")
+            {
+                Articulo.Imagenes.Add(txtUrl.Text);
+                ArticuloNegocio.GuardarImagenes(Articulo, ImagenActual);
+            }
         }
 
         private void btnEliminarFoto_Click(object sender, EventArgs e)
