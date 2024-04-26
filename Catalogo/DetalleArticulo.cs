@@ -59,11 +59,6 @@ namespace Catalogo
                 ImagenActual += 1;
                 pbxImagenes.Load(articulo.Imagenes[ImagenActual]);
             }
-            else if (ImagenActual == articulo.Imagenes.Count - 1)
-            {
-                ImagenActual += 1;
-                pbxImagenes.Load(articulo.Imagenes[ImagenActual]);
-            }
         }
     }
 }
