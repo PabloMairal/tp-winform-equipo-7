@@ -40,15 +40,8 @@ namespace Catalogo
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
-                //Validaciones campos obligatorios
-                //if(string.IsNullOrWhiteSpace(txtCodigo.Text) ||
-                //   string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                //   string.IsNullOrWhiteSpace(txtDescripcion.Text) ||
-                //   string.IsNullOrWhiteSpace(txtPrecio.Text))
-                //{
-                //    MessageBox.Show("Por favor complete todos los campos");
-                //    return;
-                //}
+                if (!ValidarObligatorios())
+                    return;
                 Articulo.Codigo = txtCodigo.Text;
                 Articulo.Nombre = txtNombre.Text;
                 Articulo.Descripcion = txtDescripcion.Text;
@@ -60,21 +53,19 @@ namespace Catalogo
                 {
                 articuloNegocio.guardarArticulo(Articulo);
                 MessageBox.Show("Articulo creado exitosamente");
+                    this.Close();
                 }
                 else
                 {
                     articuloNegocio.guardarArticulo(Articulo);
                     MessageBox.Show("Articulo modificado exitosamente");
+                    this.Close();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
                 throw;
-            }
-            finally
-            {
-                this.Close();
             }
         }
 
@@ -217,6 +208,54 @@ namespace Catalogo
         private void PlaceHolder()
         {
             pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+        }
+
+        private bool ValidarObligatorios()
+        {
+            if (txtNombre.Text == "")
+            {
+                MessageBox.Show("Por favor, ingrese un nombre.");
+                return false; 
+            }
+            if (txtCodigo.Text == "")
+            {
+                MessageBox.Show("Por favor, ingrese un codigo.");
+                return false;
+            }
+            if (txtPrecio.Text == "")
+            {
+                MessageBox.Show("Por favor, ingrese un precio.");
+                return false;
+            }
+            if (!ValidarNumeros())
+            {
+                MessageBox.Show("Precio solo acepta numeros enteros o decimales");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidarNumeros()
+        {
+            bool Decimal = false;
+
+            foreach (char c in txtPrecio.Text)
+            {
+                if (!(char.IsDigit(c)))
+                {
+                    if (c == ',' && !Decimal)
+                    {
+                        Decimal = true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
     }
 }

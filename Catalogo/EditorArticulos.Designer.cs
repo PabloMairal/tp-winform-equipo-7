@@ -51,6 +51,7 @@
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.lblUrl = new System.Windows.Forms.Label();
             this.btnEliminarFoto = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagenes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,9 +100,9 @@
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.lblNombre.Location = new System.Drawing.Point(446, 252);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(66, 19);
+            this.lblNombre.Size = new System.Drawing.Size(75, 19);
             this.lblNombre.TabIndex = 7;
-            this.lblNombre.Text = "Nombre";
+            this.lblNombre.Text = "Nombre*";
             // 
             // lblDescripcion
             // 
@@ -121,9 +122,9 @@
             this.lblMarca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.lblMarca.Location = new System.Drawing.Point(446, 501);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(50, 19);
+            this.lblMarca.Size = new System.Drawing.Size(59, 19);
             this.lblMarca.TabIndex = 9;
-            this.lblMarca.Text = "Marca";
+            this.lblMarca.Text = "Marca*";
             // 
             // lblPrecio
             // 
@@ -132,9 +133,9 @@
             this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.lblPrecio.Location = new System.Drawing.Point(814, 560);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(52, 19);
+            this.lblPrecio.Size = new System.Drawing.Size(61, 19);
             this.lblPrecio.TabIndex = 10;
-            this.lblPrecio.Text = "Precio";
+            this.lblPrecio.Text = "Precio*";
             // 
             // lblCodigo
             // 
@@ -143,9 +144,9 @@
             this.lblCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.lblCodigo.Location = new System.Drawing.Point(814, 252);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(59, 19);
+            this.lblCodigo.Size = new System.Drawing.Size(68, 19);
             this.lblCodigo.TabIndex = 11;
-            this.lblCodigo.Text = "Codigo";
+            this.lblCodigo.Text = "Codigo*";
             // 
             // lblImagenes
             // 
@@ -165,9 +166,9 @@
             this.lblCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.lblCategoria.Location = new System.Drawing.Point(445, 557);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(76, 19);
+            this.lblCategoria.Size = new System.Drawing.Size(85, 19);
             this.lblCategoria.TabIndex = 13;
-            this.lblCategoria.Text = "Categoria";
+            this.lblCategoria.Text = "Categoria*";
             // 
             // btnVolver
             // 
@@ -304,12 +305,24 @@
             this.btnEliminarFoto.UseVisualStyleBackColor = false;
             this.btnEliminarFoto.Click += new System.EventHandler(this.btnEliminarFoto_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.label1.Location = new System.Drawing.Point(445, 672);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(178, 19);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Campos Obligatorios(*)";
+            // 
             // EditorArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.ClientSize = new System.Drawing.Size(1484, 861);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEliminarFoto);
             this.Controls.Add(this.lblUrl);
             this.Controls.Add(this.txtUrl);
@@ -370,5 +383,6 @@
         private System.Windows.Forms.TextBox txtUrl;
         private System.Windows.Forms.Label lblUrl;
         private System.Windows.Forms.Button btnEliminarFoto;
+        private System.Windows.Forms.Label label1;
     }
 }

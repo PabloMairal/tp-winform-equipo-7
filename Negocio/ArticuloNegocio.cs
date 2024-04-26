@@ -216,7 +216,7 @@ namespace Negocio
                     Articulo.Categoria = Categoria;
                     BuscarImagenes(Articulo);
                     Articulo.Precio = (decimal)datos.Lector["Precio"];
-                    Articulo.Add(Articulo);
+                    lista.Add(Articulo);
 
                 }
 
