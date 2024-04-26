@@ -70,15 +70,15 @@ namespace Negocio
                 throw;
             }
         }
-        public void GuardarImagenes(Articulo Articulo)
+        public void GuardarImagenes(int Id, string Imagen)
         {
             try
             {
-                foreach (var Imagen in Articulo.Imagenes)
-                { 
-                    AccesoDatos datos = new AccesoDatos();
+                AccesoDatos datos = new AccesoDatos();
+                if (Imagen != "")
+                {
                     datos.SetearConsulta("Insert into IMAGENES (IdArticulo, ImagenUrl) values (@IdArticulo, @ImagenUrl) ");
-                    datos.SetearParametro("@IdArticulo", Articulo.Id);
+                    datos.SetearParametro("@IdArticulo", Id);
                     datos.SetearParametro("@ImagenUrl", Imagen);
                     datos.EjecutarAccion();
                 }
@@ -110,7 +110,11 @@ namespace Negocio
                 datos.SetearParametro("@Precio", Articulo.Precio);
                 //Busca el Id del articulo creado para asignarlo a la imagen
                 Articulo.Id = datos.EjecutarScalar();
-                GuardarImagenes(Articulo);
+                EliminarImagenes(Articulo);
+                foreach (var Imagen in Articulo.Imagenes)
+                {
+                    GuardarImagenes(Articulo.Id, Imagen);
+                }
 
             } 
             catch (Exception ex)
@@ -124,7 +128,7 @@ namespace Negocio
             }
         }
 
-        public List<Articulo> filtrar(string campo, string criterio, string filtro, AccesoDatos accesoDatos)
+        public List<Articulo> filtrar(string campo, string criterio, string filtro)
         {
             List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
@@ -245,9 +249,25 @@ namespace Negocio
             }
         }
 
-        public object filtrar(string campo, string criterio, string filtro)
+        public void EliminarImagenes(Articulo Articulo)
         {
-            throw new NotImplementedException();
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.SetearConsulta("Delete From IMAGENES where IDArticulo = @Id");
+                accesoDatos.SetearParametro("Id", Articulo.Id);
+                accesoDatos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                accesoDatos.CerrarConexion();
+            }
         }
+
+
     }
 }

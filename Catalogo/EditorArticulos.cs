@@ -49,25 +49,17 @@ namespace Catalogo
                 //    MessageBox.Show("Por favor complete todos los campos");
                 //    return;
                 //}
-                if(Articulo == null)
-                {
-                    Articulo = new Articulo();
-                }
                 Articulo.Codigo = txtCodigo.Text;
                 Articulo.Nombre = txtNombre.Text;
                 Articulo.Descripcion = txtDescripcion.Text;
                 Articulo.Marca = (Marca)cboMarca.SelectedItem;
                 Articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 Articulo.Precio = decimal.Parse(txtPrecio.Text);
-                //if(txtUrl.Text != "")
-                //{
-                //    Articulo.Imagenes.Add(txtUrl.Text);
-                //}
-                
-                if(Articulo.Id == 0)
+
+                if (Articulo.Id == 0)
                 {
-                articuloNegocio.guardarArticulo(Articulo);
-                MessageBox.Show("Articulo creado exitosamente");
+                    articuloNegocio.guardarArticulo(Articulo);
+                    MessageBox.Show("Articulo creado exitosamente");
                 }
                 else
                 {
@@ -96,7 +88,7 @@ namespace Catalogo
             cboCategoria.DataSource = CategoriaNegocio.ListarCategorias();
             cboCategoria.ValueMember = "Id";
             cboCategoria.DisplayMember = "Nombre";
-            pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+            PlaceHolder();
             if (Articulo != null)
             {
                 txtNombre.Text = Articulo.Nombre;
@@ -105,17 +97,12 @@ namespace Catalogo
                 cboCategoria.SelectedValue = Articulo.Categoria.Id;
                 txtCodigo.Text = Articulo.Codigo.ToString();
                 txtPrecio.Text = Articulo.Precio.ToString();
-                try
-                {
-                    txtUrl.Text = Articulo.Imagenes[0];
-                    pbxImagenes.Load(txtUrl.Text);
-                }
-                catch (Exception)
-                {
-                    pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
-                }
+                txtUrl.Text = Articulo.Imagenes[0];
             }
-
+            else
+            {
+                Articulo = new Articulo();
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -131,108 +118,105 @@ namespace Catalogo
             MarcasCategorias.ShowDialog();
         }
 
-        private void txtUrl_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                pbxImagenes.Load(txtUrl.Text);
-            }
-            catch (Exception)
-            {
-                pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
-            }
-        }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (ImagenActual < Articulo.Imagenes.Count -1)
+            if (ImagenActual < Articulo.Imagenes.Count - 1)
             {
                 ImagenActual += 1;
                 txtUrl.Text = Articulo.Imagenes[ImagenActual];
-                try
-                {
-                    pbxImagenes.Load(txtUrl.Text);
-                }
-                catch (Exception)
-                {
-                    pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
-                }
             }
-            else if (ImagenActual == Articulo.Imagenes.Count -1)
+            else if (ImagenActual == Articulo.Imagenes.Count - 1)
             {
                 ImagenActual += 1;
-                pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
                 txtUrl.Text = "";
             }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            if(ImagenActual != 0)
+            if (ImagenActual != 0)
             {
                 ImagenActual -= 1;
 
                 txtUrl.Text = Articulo.Imagenes[ImagenActual];
-                try
-                {
-                    pbxImagenes.Load(txtUrl.Text);
-                }
-                catch (Exception)
-                {
-                    pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
-                }
-            }
-        }
-
-        private void btnGuardarFoto_Click(object sender, EventArgs e)
-        {
-            ArticuloNegocio ArticuloNegocio = new ArticuloNegocio();
-            if(txtUrl.Text != "")
-            {
-                Articulo.Imagenes.Add(txtUrl.Text);
-                ArticuloNegocio.GuardarImagenes(Articulo, ImagenActual);
             }
         }
 
         private void btnEliminarFoto_Click(object sender, EventArgs e)
         {
-            ArticuloNegocio ArticuloNegocio = new ArticuloNegocio();
-
             try
             {
-                if(ImagenActual != 0 && ImagenActual < Articulo.Imagenes.Count)
+                //Elimina de la lista una imagen, excepto la primera
+                if (ImagenActual != 0 && ImagenActual < Articulo.Imagenes.Count)
                 {
-                    ArticuloNegocio.EliminarImagen(Articulo, ImagenActual);
                     Articulo.Imagenes.Remove(txtUrl.Text);
                     ImagenActual -= 1;
                     txtUrl.Text = Articulo.Imagenes[ImagenActual];
-                    pbxImagenes.Load(Articulo.Imagenes[ImagenActual]);
                 }
-                else if(ImagenActual == 0 && Articulo.Imagenes.Count > 1)
+                //Elimina de la lista la primera imagen cuando hay más de una foto
+                else if (ImagenActual == 0 && Articulo.Imagenes.Count > 1)
                 {
-                    ArticuloNegocio.EliminarImagen(Articulo, ImagenActual);
                     Articulo.Imagenes.Remove(txtUrl.Text);
                     txtUrl.Text = Articulo.Imagenes[ImagenActual];
-                    pbxImagenes.Load(Articulo.Imagenes[ImagenActual]);
                 }
-                else if(ImagenActual == 0 && Articulo.Imagenes.Count == 1)
+                //Elimina de la lista la primera imagen si es la única foto
+                else if (ImagenActual == 0 && Articulo.Imagenes.Count == 1)
                 {
-                    ArticuloNegocio.EliminarImagen(Articulo, ImagenActual);
+
                     Articulo.Imagenes.Remove(txtUrl.Text);
                     txtUrl.Text = "";
-                    pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
                 }
-                else
-                {
-                    txtUrl.Text = "";
-                    pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
-                }
+                //else
+                //{
+                //    txtUrl.Text = "";
+                //    PlaceHolder();
+                //}
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
 
+        }
+
+        private void txtUrl_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                pbxImagenes.Load(txtUrl.Text);
+            }
+            catch (Exception ex)
+            {
+                PlaceHolder();
+            }
+        }
+
+        private void txtUrl_Leave(object sender, EventArgs e)
+        {
+            //Si es el primer articulo, lo agrega a la lista
+            if (txtUrl.Text != "" && !(Articulo.Imagenes.Contains(txtUrl.Text))
+                && Articulo.Imagenes.Count == 0)
+            {
+                Articulo.Imagenes.Add(txtUrl.Text);
+            }
+            //Si se cambia una imagen por otra, la reemplaza en la lista
+            else if (txtUrl.Text != "" && !(Articulo.Imagenes.Contains(txtUrl.Text))
+                && ImagenActual < Articulo.Imagenes.Count)
+            {
+                Articulo.Imagenes[ImagenActual] = txtUrl.Text;
+            }
+            //Si es una imagen nueva, la agrega a la lista
+            else if (txtUrl.Text != "" && !(Articulo.Imagenes.Contains(txtUrl.Text))
+                && ImagenActual == Articulo.Imagenes.Count)
+            {
+                Articulo.Imagenes.Add(txtUrl.Text);
+            }
+        }
+
+        private void PlaceHolder()
+        {
+            pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
         }
     }
 }

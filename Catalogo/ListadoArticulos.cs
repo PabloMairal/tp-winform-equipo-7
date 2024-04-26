@@ -17,13 +17,11 @@ using Datos;
 namespace Catalogo {
     public partial class ListadoArticulos : Form
     {
+        ArticuloNegocio articuloNegocio = new ArticuloNegocio();
         List<Articulo> Articulos = new List<Articulo>();
         public ListadoArticulos()
         {
             InitializeComponent();
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-            Articulos = articuloNegocio.ListarArticulos();
-            dgvArticulos.DataSource = Articulos;
 
         }
 
@@ -129,6 +127,14 @@ namespace Catalogo {
                 cboCriterio.Items.Add("Menor a");
                 cboCriterio.Items.Add("Igual a");
             } 
+        }
+
+        private void ListadoArticulos_Enter(object sender, EventArgs e)
+        {
+            Console.WriteLine("Entrando a ListadoArticulos");
+            Articulos = articuloNegocio.ListarArticulos();
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = Articulos;
         }
     }
 }

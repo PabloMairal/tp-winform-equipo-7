@@ -50,7 +50,6 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.lblUrl = new System.Windows.Forms.Label();
-            this.btnGuardarFoto = new System.Windows.Forms.Button();
             this.btnEliminarFoto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagenes)).BeginInit();
             this.SuspendLayout();
@@ -222,22 +221,32 @@
             // 
             // btnEditarMarca
             // 
+            this.btnEditarMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
+            this.btnEditarMarca.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
+            this.btnEditarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarMarca.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.btnEditarMarca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.btnEditarMarca.Location = new System.Drawing.Point(639, 522);
             this.btnEditarMarca.Name = "btnEditarMarca";
             this.btnEditarMarca.Size = new System.Drawing.Size(77, 23);
             this.btnEditarMarca.TabIndex = 9;
             this.btnEditarMarca.Text = "Editar";
-            this.btnEditarMarca.UseVisualStyleBackColor = true;
+            this.btnEditarMarca.UseVisualStyleBackColor = false;
             this.btnEditarMarca.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEditarCategoria
             // 
+            this.btnEditarCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
+            this.btnEditarCategoria.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
+            this.btnEditarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarCategoria.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.btnEditarCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.btnEditarCategoria.Location = new System.Drawing.Point(639, 581);
             this.btnEditarCategoria.Name = "btnEditarCategoria";
             this.btnEditarCategoria.Size = new System.Drawing.Size(75, 23);
             this.btnEditarCategoria.TabIndex = 10;
             this.btnEditarCategoria.Text = "Editar";
-            this.btnEditarCategoria.UseVisualStyleBackColor = true;
+            this.btnEditarCategoria.UseVisualStyleBackColor = false;
             this.btnEditarCategoria.Click += new System.EventHandler(this.btnEditarCategoria_Click);
             // 
             // btnNext
@@ -266,6 +275,7 @@
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(183, 20);
             this.txtUrl.TabIndex = 5;
+            this.txtUrl.TextChanged += new System.EventHandler(this.txtUrl_TextChanged);
             this.txtUrl.Leave += new System.EventHandler(this.txtUrl_Leave);
             // 
             // lblUrl
@@ -279,24 +289,19 @@
             this.lblUrl.TabIndex = 15;
             this.lblUrl.Text = "Url";
             // 
-            // btnGuardarFoto
-            // 
-            this.btnGuardarFoto.Location = new System.Drawing.Point(818, 469);
-            this.btnGuardarFoto.Name = "btnGuardarFoto";
-            this.btnGuardarFoto.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardarFoto.TabIndex = 16;
-            this.btnGuardarFoto.Text = "Guardar foto";
-            this.btnGuardarFoto.UseVisualStyleBackColor = true;
-            this.btnGuardarFoto.Click += new System.EventHandler(this.btnGuardarFoto_Click);
-            // 
             // btnEliminarFoto
             // 
-            this.btnEliminarFoto.Location = new System.Drawing.Point(913, 469);
+            this.btnEliminarFoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
+            this.btnEliminarFoto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
+            this.btnEliminarFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarFoto.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnEliminarFoto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.btnEliminarFoto.Location = new System.Drawing.Point(818, 458);
             this.btnEliminarFoto.Name = "btnEliminarFoto";
-            this.btnEliminarFoto.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarFoto.Size = new System.Drawing.Size(183, 26);
             this.btnEliminarFoto.TabIndex = 17;
             this.btnEliminarFoto.Text = "Eliminar foto";
-            this.btnEliminarFoto.UseVisualStyleBackColor = true;
+            this.btnEliminarFoto.UseVisualStyleBackColor = false;
             this.btnEliminarFoto.Click += new System.EventHandler(this.btnEliminarFoto_Click);
             // 
             // EditorArticulos
@@ -306,7 +311,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.ClientSize = new System.Drawing.Size(1484, 861);
             this.Controls.Add(this.btnEliminarFoto);
-            this.Controls.Add(this.btnGuardarFoto);
             this.Controls.Add(this.lblUrl);
             this.Controls.Add(this.txtUrl);
             this.Controls.Add(this.btnBack);
@@ -365,7 +369,6 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.TextBox txtUrl;
         private System.Windows.Forms.Label lblUrl;
-        private System.Windows.Forms.Button btnGuardarFoto;
         private System.Windows.Forms.Button btnEliminarFoto;
     }
 }
