@@ -55,11 +55,11 @@ namespace Catalogo
                 Articulo.Marca = (Marca)cboMarca.SelectedItem;
                 Articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 Articulo.Precio = decimal.Parse(txtPrecio.Text);
-
-                if (Articulo.Id == 0)
+                
+                if(Articulo.Id == 0)
                 {
-                    articuloNegocio.guardarArticulo(Articulo);
-                    MessageBox.Show("Articulo creado exitosamente");
+                articuloNegocio.guardarArticulo(Articulo);
+                MessageBox.Show("Articulo creado exitosamente");
                 }
                 else
                 {
@@ -121,12 +121,12 @@ namespace Catalogo
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (ImagenActual < Articulo.Imagenes.Count - 1)
+            if (ImagenActual < Articulo.Imagenes.Count -1)
             {
                 ImagenActual += 1;
                 txtUrl.Text = Articulo.Imagenes[ImagenActual];
             }
-            else if (ImagenActual == Articulo.Imagenes.Count - 1)
+            else if (ImagenActual == Articulo.Imagenes.Count -1)
             {
                 ImagenActual += 1;
                 txtUrl.Text = "";
@@ -135,7 +135,7 @@ namespace Catalogo
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            if (ImagenActual != 0)
+            if(ImagenActual != 0)
             {
                 ImagenActual -= 1;
 
@@ -207,7 +207,7 @@ namespace Catalogo
                 Articulo.Imagenes[ImagenActual] = txtUrl.Text;
             }
             //Si es una imagen nueva, la agrega a la lista
-            else if (txtUrl.Text != "" && !(Articulo.Imagenes.Contains(txtUrl.Text))
+            else if(txtUrl.Text != "" && !(Articulo.Imagenes.Contains(txtUrl.Text))
                 && ImagenActual == Articulo.Imagenes.Count)
             {
                 Articulo.Imagenes.Add(txtUrl.Text);
