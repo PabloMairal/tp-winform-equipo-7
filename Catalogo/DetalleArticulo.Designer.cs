@@ -36,7 +36,11 @@
             this.rtxtDescripcion = new System.Windows.Forms.RichTextBox();
             this.btnVolver = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.pbxImagenes = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagenes)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -146,12 +150,44 @@
             this.panel1.Size = new System.Drawing.Size(680, 169);
             this.panel1.TabIndex = 8;
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(496, 153);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(23, 123);
+            this.btnBack.TabIndex = 14;
+            this.btnBack.Text = "<";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(714, 153);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(23, 123);
+            this.btnNext.TabIndex = 15;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // pbxImagenes
+            // 
+            this.pbxImagenes.Location = new System.Drawing.Point(525, 153);
+            this.pbxImagenes.Name = "pbxImagenes";
+            this.pbxImagenes.Size = new System.Drawing.Size(183, 123);
+            this.pbxImagenes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxImagenes.TabIndex = 13;
+            this.pbxImagenes.TabStop = false;
+            // 
             // DetalleArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.ClientSize = new System.Drawing.Size(1484, 861);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.pbxImagenes);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lblCategoria);
@@ -169,6 +205,7 @@
             this.Text = "Detalle";
             this.Load += new System.EventHandler(this.DetalleArticulo_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagenes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +222,8 @@
         private System.Windows.Forms.RichTextBox rtxtDescripcion;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.PictureBox pbxImagenes;
     }
 }

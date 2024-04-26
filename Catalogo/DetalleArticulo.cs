@@ -14,6 +14,7 @@ namespace Catalogo
     public partial class DetalleArticulo : Form
     {  
         private Articulo articulo;
+        private int ImagenActual = 0;
         public DetalleArticulo(Articulo art)
         {
             InitializeComponent();
@@ -40,6 +41,29 @@ namespace Catalogo
         {
             btnVolver.ForeColor = System.Drawing.ColorTranslator.FromHtml("#EDEDED");
             btnVolver.Cursor = Cursors.Default;
-        }   
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            if (ImagenActual != 0)
+            {
+                ImagenActual -= 1;
+                pbxImagenes.Load(articulo.Imagenes[ImagenActual]);
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (ImagenActual < articulo.Imagenes.Count - 1)
+            {
+                ImagenActual += 1;
+                pbxImagenes.Load(articulo.Imagenes[ImagenActual]);
+            }
+            else if (ImagenActual == articulo.Imagenes.Count - 1)
+            {
+                ImagenActual += 1;
+                pbxImagenes.Load(articulo.Imagenes[ImagenActual]);
+            }
+        }
     }
 }
