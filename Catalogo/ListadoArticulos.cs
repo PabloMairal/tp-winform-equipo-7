@@ -58,7 +58,7 @@ namespace Catalogo {
 
         private void btnDetalles_Click(object sender, EventArgs e)
         {
-            _OnDetailOpen(new CustomEventArgs { Articulo = new Articulo() });
+            _OnDetailOpen(new CustomEventArgs { Articulo = (Articulo)dgvArticulos.CurrentRow.DataBoundItem });
         }
 
         private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
