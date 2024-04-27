@@ -145,14 +145,14 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.panel1.Controls.Add(this.rtxtDescripcion);
-            this.panel1.Location = new System.Drawing.Point(50, 339);
+            this.panel1.Location = new System.Drawing.Point(82, 446);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(680, 169);
             this.panel1.TabIndex = 8;
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(496, 153);
+            this.btnBack.Location = new System.Drawing.Point(216, 153);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(23, 257);
             this.btnBack.TabIndex = 0;
@@ -162,7 +162,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(714, 153);
+            this.btnNext.Location = new System.Drawing.Point(603, 153);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(23, 257);
             this.btnNext.TabIndex = 1;
@@ -172,9 +172,9 @@
             // 
             // pbxImagenes
             // 
-            this.pbxImagenes.Location = new System.Drawing.Point(525, 153);
+            this.pbxImagenes.Location = new System.Drawing.Point(245, 153);
             this.pbxImagenes.Name = "pbxImagenes";
-            this.pbxImagenes.Size = new System.Drawing.Size(183, 123);
+            this.pbxImagenes.Size = new System.Drawing.Size(352, 257);
             this.pbxImagenes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxImagenes.TabIndex = 13;
             this.pbxImagenes.TabStop = false;
