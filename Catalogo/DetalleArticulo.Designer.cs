@@ -74,7 +74,7 @@
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblPrecio.Location = new System.Drawing.Point(474, 22);
+            this.lblPrecio.Location = new System.Drawing.Point(568, 22);
             this.lblPrecio.MinimumSize = new System.Drawing.Size(256, 54);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(256, 54);
@@ -113,10 +113,10 @@
             this.rtxtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtxtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.rtxtDescripcion.Location = new System.Drawing.Point(18, 17);
+            this.rtxtDescripcion.Location = new System.Drawing.Point(17, 17);
             this.rtxtDescripcion.Name = "rtxtDescripcion";
             this.rtxtDescripcion.ReadOnly = true;
-            this.rtxtDescripcion.Size = new System.Drawing.Size(640, 131);
+            this.rtxtDescripcion.Size = new System.Drawing.Size(738, 131);
             this.rtxtDescripcion.TabIndex = 7;
             this.rtxtDescripcion.TabStop = false;
             this.rtxtDescripcion.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et augue tellus." +
@@ -130,11 +130,11 @@
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.btnVolver.Location = new System.Drawing.Point(589, 524);
+            this.btnVolver.Location = new System.Drawing.Point(683, 636);
             this.btnVolver.Margin = new System.Windows.Forms.Padding(2);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(141, 26);
-            this.btnVolver.TabIndex = 0;
+            this.btnVolver.TabIndex = 2;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
@@ -145,36 +145,36 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.panel1.Controls.Add(this.rtxtDescripcion);
-            this.panel1.Location = new System.Drawing.Point(50, 339);
+            this.panel1.Location = new System.Drawing.Point(50, 442);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(680, 169);
+            this.panel1.Size = new System.Drawing.Size(774, 169);
             this.panel1.TabIndex = 8;
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(496, 153);
+            this.btnBack.Location = new System.Drawing.Point(206, 151);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(23, 123);
-            this.btnBack.TabIndex = 14;
+            this.btnBack.Size = new System.Drawing.Size(23, 257);
+            this.btnBack.TabIndex = 0;
             this.btnBack.Text = "<";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(714, 153);
+            this.btnNext.Location = new System.Drawing.Point(597, 151);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(23, 123);
-            this.btnNext.TabIndex = 15;
+            this.btnNext.Size = new System.Drawing.Size(23, 257);
+            this.btnNext.TabIndex = 1;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // pbxImagenes
             // 
-            this.pbxImagenes.Location = new System.Drawing.Point(525, 153);
+            this.pbxImagenes.Location = new System.Drawing.Point(235, 151);
             this.pbxImagenes.Name = "pbxImagenes";
-            this.pbxImagenes.Size = new System.Drawing.Size(183, 123);
+            this.pbxImagenes.Size = new System.Drawing.Size(356, 257);
             this.pbxImagenes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxImagenes.TabIndex = 13;
             this.pbxImagenes.TabStop = false;
@@ -184,7 +184,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.ClientSize = new System.Drawing.Size(1484, 861);
+            this.ClientSize = new System.Drawing.Size(848, 688);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.pbxImagenes);
@@ -197,9 +197,9 @@
             this.Controls.Add(this.lblTitulo);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1500, 900);
+            this.MaximumSize = new System.Drawing.Size(864, 727);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1500, 900);
+            this.MinimumSize = new System.Drawing.Size(864, 727);
             this.Name = "DetalleArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalle";

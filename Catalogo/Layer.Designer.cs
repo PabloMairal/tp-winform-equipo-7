@@ -40,15 +40,15 @@
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
             // 
-            // frmLayer
+            // Layer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1480, 857);
+            this.ClientSize = new System.Drawing.Size(848, 688);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "frmLayer";
+            this.Name = "Layer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Catalogo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLayer_FormClosing);
