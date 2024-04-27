@@ -46,6 +46,7 @@ namespace Catalogo {
         private void ListadoArticulos_Load(object sender, EventArgs e)
         {
             cboCampo.Items.Add("Nombre");
+            cboCampo.Items.Add("Codigo");
             cboCampo.Items.Add("Marca");
             cboCampo.Items.Add("Categoria");
             cboCampo.Items.Add("Precio");
@@ -79,7 +80,7 @@ namespace Catalogo {
 
             if (filtro.Length >= 2)
             {
-                listaFiltrada = Articulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) /*|| x.Marca.Nombre.ToUpper().Contains(filtro.ToUpper)*/);
+                listaFiltrada = Articulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()));
             }
             else
             {
@@ -114,6 +115,27 @@ namespace Catalogo {
         {
             string opcion = cboCampo.SelectedItem.ToString();
             if(opcion == "Nombre")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
+            }
+            else if(opcion == "Codigo")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
+            }
+            else if(opcion == "Marca")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
+            }
+            else if(opcion == "Categoria")
             {
                 cboCriterio.Items.Clear();
                 cboCriterio.Items.Add("Comienza con");

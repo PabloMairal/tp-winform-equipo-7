@@ -116,14 +116,14 @@ namespace Negocio
             try
             {
                 string consulta = "select a.Id, Codigo, Nombre, a.Descripcion as Descripcion,m.Id as IdMarca, m.Descripcion as Marca, c.Id as IdCategoria , c.Descripcion as Categoria, Precio from ARTICULOS a inner join MARCAS m on a.IdMarca = m.Id inner join CATEGORIAS c on a.IdCategoria = c.Id AND ";
-                if (campo == "Nombre")
+                if(campo == "Nombre")
                 {
-                    switch (criterio)
+                    switch(criterio)
                     {
-                        case "Comienza con":
+                        case "----":
                             consulta += "Nombre like '" + filtro + "%' ";
                             break;
-                        case "Termina con":
+                        case "--":
                             consulta += "Nombre like '%" + filtro + "'";
                             break;
                         default:
@@ -131,9 +131,24 @@ namespace Negocio
                             break;
                     }
                 }
-                else if (campo == "Marca")
+                else if(campo == "Codigo")
                 {
                     switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "Codigo like '" + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta += "Codigo like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "Codigo like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                else if(campo == "Marca")
+                {
+                    switch(criterio)
                     {
                         case "Comienza con":
                             consulta += "m.Descripcion like '" + filtro + "%' ";
@@ -146,9 +161,9 @@ namespace Negocio
                             break;
                     }
                 }
-                else if (campo == "Categoria")
+                else if(campo == "Categoria")
                 {
-                    switch (criterio)
+                    switch(criterio)
                     {
                         case "Comienza con":
                             consulta += "c.Descripcion like '" + filtro + "%' ";
@@ -163,7 +178,7 @@ namespace Negocio
                 }
                 else
                 {
-                    switch (criterio)
+                    switch(criterio)
                     {
                         case "Mayor a":
                             consulta += "Precio > " + filtro;
@@ -253,7 +268,5 @@ namespace Negocio
                 accesoDatos.CerrarConexion();
             }
         }
-
-
     }
 }
