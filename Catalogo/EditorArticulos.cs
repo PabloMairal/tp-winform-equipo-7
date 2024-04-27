@@ -40,8 +40,9 @@ namespace Catalogo
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
-                if (!ValidarObligatorios())
+                if (!ValidarObligatorios() || !ValidarLongitudCadena())
                     return;
+
                 Articulo.Codigo = txtCodigo.Text;
                 Articulo.Nombre = txtNombre.Text;
                 Articulo.Descripcion = txtDescripcion.Text;
@@ -256,6 +257,58 @@ namespace Catalogo
             }
 
             return true;
+        }
+
+        private bool ValidarLongitudCadena()
+        {
+            if (txtNombre.Text.Count() > 50)
+            {
+                MessageBox.Show("El nombre del articulo excede la cantidad máxima de caracteres(50), por favor modifique el nombre.");
+                return false;
+            }
+            if (txtDescripcion.Text.Count() > 150)
+            {
+                MessageBox.Show("La descripción del articulo excede la cantidad máxima de caracteres(150), por favor modifique la descripción.");
+                return false;
+            }
+            if (txtCodigo.Text.Count() > 50)
+            {
+                MessageBox.Show("El codigo del articulo excede la cantidad máxima de caracteres(50), por favor modifique el codigo.");
+                return false;
+            }
+            string precioSinComa = txtPrecio.Text.Replace(",", "");
+            if (precioSinComa.Length > 19) 
+            {
+                MessageBox.Show("El precio del articulo excede la cantidad máxima de digitos(19), por favor modifique el precio.");
+                return false;
+            }
+
+            string precioEnteros = SoloEnteros();
+            if (precioEnteros.Length > 15)
+            {
+                MessageBox.Show("El precio no debe tener más de 15 dígitos enteros.");
+                return false;
+            }
+
+
+            return true;
+        }
+
+        private string SoloEnteros()
+        {
+            string precioEnteros = "";
+            foreach(char c in txtPrecio.Text)
+            {
+                if(c != ',')
+                {
+                    precioEnteros += c;
+                }
+                else
+                {
+                    return precioEnteros;
+                }
+            }
+            return precioEnteros;
         }
     }
 }
