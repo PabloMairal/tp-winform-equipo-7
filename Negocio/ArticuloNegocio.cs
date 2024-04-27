@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dominio;
 using Datos;
+using System.Collections;
 
 namespace Negocio
 {
@@ -17,29 +18,9 @@ namespace Negocio
             List<Articulo> Articulos = new List<Articulo>();
             try
             {
-                datos.SetearConsulta("select a.Id, Codigo, Nombre, a.Descripcion as Descripcion,m.Id as IdMarca, m.Descripcion as Marca, c.Id as IdCategoria , c.Descripcion as Categoria, Precio from ARTICULOS a left join MARCAS m on a.IdMarca = m.Id left join CATEGORIAS c on a.IdCategoria = c.Id");
+                datos.SetearConsulta("select a.Id, Codigo, Nombre, a.Descripcion as Descripcion,m.Id as IdMarca, m.Descripcion as Marca, c.Id as IdCategoria , c.Descripcion as Categoria, Precio from ARTICULOS a inner join MARCAS m on a.IdMarca = m.Id inner join CATEGORIAS c on a.IdCategoria = c.Id");
                 datos.EjecutarLectura();
-                while (datos.Lector.Read())
-                {
-                    Articulo Articulo = new Articulo();
-                    Marca Marca = new Marca();
-                    Categoria Categoria = new Categoria();
-
-                    Articulo.Id = (int)datos.Lector["Id"];
-                    Articulo.Codigo = (string)datos.Lector["Codigo"];
-                    Articulo.Nombre = (string)datos.Lector["Nombre"];
-                    Articulo.Descripcion = (string)datos.Lector["Descripcion"];
-                    Marca.Id = (int)(datos.Lector["IdMarca"]);
-                    Marca.Nombre = (string)datos.Lector["Marca"];
-                    Articulo.Marca = Marca;
-                    Categoria.Id = (int)(datos.Lector["IdCategoria"]);
-                    Categoria.Nombre = (string)datos.Lector["Categoria"];
-                    Articulo.Categoria = Categoria;
-                    BuscarImagenes(Articulo);
-                    Articulo.Precio = (decimal)datos.Lector["Precio"];
-                    Articulos.Add(Articulo);
-
-                }
+                CrearListaArticulos(Articulos, datos);
             }
             catch (Exception ex)
             {
@@ -134,7 +115,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "select a.Id, Codigo, Nombre, a.Descripcion as Descripcion,m.Id as IdMarca, m.Descripcion as Marca, c.Id as IdCategoria , c.Descripcion as Categoria, Precio from ARTICULOS a left join MARCAS m on a.IdMarca = m.Id left join CATEGORIAS c on a.IdCategoria = c.Id AND ";
+                string consulta = "select a.Id, Codigo, Nombre, a.Descripcion as Descripcion,m.Id as IdMarca, m.Descripcion as Marca, c.Id as IdCategoria , c.Descripcion as Categoria, Precio from ARTICULOS a inner join MARCAS m on a.IdMarca = m.Id inner join CATEGORIAS c on a.IdCategoria = c.Id AND ";
                 if (campo == "Nombre")
                 {
                     switch (criterio)
@@ -185,48 +166,53 @@ namespace Negocio
                     switch (criterio)
                     {
                         case "Mayor a":
-                            consulta += "Codigo > " + filtro;
+                            consulta += "Precio > " + filtro;
                             break;
                         case "Menor a":
-                            consulta += "Codigo < " + filtro;
+                            consulta += "Precio < " + filtro;
                             break;
                         default:
-                            consulta += "Codigo = " + filtro;
+                            consulta += "Precio = " + filtro;
                             break;
                     }
                 }
 
                 datos.SetearConsulta(consulta);
-                datos.EjecutarAccion();
-                while (datos.Lector.Read())
-                {
-                    Articulo Articulo = new Articulo();
-                    Marca Marca = new Marca();
-                    Categoria Categoria = new Categoria();
-
-                    Articulo.Id = (int)datos.Lector["Id"];
-                    Articulo.Codigo = (string)datos.Lector["Codigo"];
-                    Articulo.Nombre = (string)datos.Lector["Nombre"];
-                    Articulo.Descripcion = (string)datos.Lector["Descripcion"];
-                    Marca.Id = (int)(datos.Lector["IdMarca"]);
-                    Marca.Nombre = (string)datos.Lector["Marca"];
-                    Articulo.Marca = Marca;
-                    Categoria.Id = (int)(datos.Lector["IdCategoria"]);
-                    Categoria.Nombre = (string)datos.Lector["Categoria"];
-                    Articulo.Categoria = Categoria;
-                    BuscarImagenes(Articulo);
-                    Articulo.Precio = (decimal)datos.Lector["Precio"];
-                    lista.Add(Articulo);
-
-                }
-
-                return lista;
+                datos.EjecutarLectura();
+                return CrearListaArticulos(lista, datos);
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
+        }
+
+        private List<Articulo> CrearListaArticulos(List<Articulo> lista, AccesoDatos datos)
+        {
+            while (datos.Lector.Read())
+            {
+                Articulo Articulo = new Articulo();
+                Marca Marca = new Marca();
+                Categoria Categoria = new Categoria();
+
+                Articulo.Id = (int)datos.Lector["Id"];
+                Articulo.Codigo = (string)datos.Lector["Codigo"];
+                Articulo.Nombre = (string)datos.Lector["Nombre"];
+                Articulo.Descripcion = (string)datos.Lector["Descripcion"];
+                Marca.Id = (int)(datos.Lector["IdMarca"]);
+                Marca.Nombre = (string)datos.Lector["Marca"];
+                Articulo.Marca = Marca;
+                Categoria.Id = (int)(datos.Lector["IdCategoria"]);
+                Categoria.Nombre = (string)datos.Lector["Categoria"];
+                Articulo.Categoria = Categoria;
+                BuscarImagenes(Articulo);
+                Articulo.Precio = (decimal)datos.Lector["Precio"];
+                lista.Add(Articulo);
+
+            }
+
+            return lista;
         }
 
         public bool ValidarArticulosPorMrcCtg(int id, string columna)
