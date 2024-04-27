@@ -20,6 +20,18 @@ namespace Catalogo
             InitializeComponent();
             articulo = art;
         }
+
+        private void LoadImage(string url)
+        {
+            try
+            {
+                pbxImagenes.Load(url);
+            }
+            catch (Exception)
+            {
+                pbxImagenes.Load("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+            }
+        }
         private void btnVolver_Click(object sender, EventArgs e)
         {
             Close();
@@ -27,6 +39,29 @@ namespace Catalogo
 
         private void DetalleArticulo_Load(object sender, EventArgs e)
         {
+            lblCodigo.Text = "Cod: " + articulo.Codigo;
+            lblTitulo.Text = articulo.Nombre;
+            rtxtDescripcion.Text = articulo.Descripcion;
+            lblPrecio.Text ="$ " +  articulo.Precio.ToString("0.00");
+            lblCategoria.Text = articulo.Categoria.Nombre;
+            lblMarca.Text = articulo.Marca.Nombre;
+            
+
+            if (articulo.Imagenes.Count > 0)
+            {
+                LoadImage(articulo.Imagenes[ImagenActual]);
+                if (articulo.Imagenes.Count == 1)
+                {
+                    btnBack.Visible = false;
+                    btnNext.Visible = false;
+                }
+            }
+            else
+            {
+                LoadImage("https://www.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg");
+                btnBack.Visible = false;
+                btnNext.Visible = false;
+            }
 
         }
 
@@ -48,7 +83,7 @@ namespace Catalogo
             if (ImagenActual != 0)
             {
                 ImagenActual -= 1;
-                pbxImagenes.Load(articulo.Imagenes[ImagenActual]);
+                LoadImage(articulo.Imagenes[ImagenActual]);
             }
         }
 
@@ -57,7 +92,7 @@ namespace Catalogo
             if (ImagenActual < articulo.Imagenes.Count - 1)
             {
                 ImagenActual += 1;
-                pbxImagenes.Load(articulo.Imagenes[ImagenActual]);
+                LoadImage(articulo.Imagenes[ImagenActual]);
             }
         }
     }

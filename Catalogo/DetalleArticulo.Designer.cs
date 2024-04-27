@@ -49,7 +49,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblTitulo.Location = new System.Drawing.Point(44, 45);
+            this.lblTitulo.Location = new System.Drawing.Point(120, 22);
             this.lblTitulo.MaximumSize = new System.Drawing.Size(300, 31);
             this.lblTitulo.MinimumSize = new System.Drawing.Size(300, 31);
             this.lblTitulo.Name = "lblTitulo";
@@ -62,7 +62,7 @@
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblCodigo.Location = new System.Drawing.Point(47, 22);
+            this.lblCodigo.Location = new System.Drawing.Point(33, 26);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.lblCodigo.Size = new System.Drawing.Size(81, 17);
@@ -87,7 +87,7 @@
             this.lblMarca.AutoSize = true;
             this.lblMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMarca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblMarca.Location = new System.Drawing.Point(45, 88);
+            this.lblMarca.Location = new System.Drawing.Point(121, 53);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.lblMarca.Size = new System.Drawing.Size(71, 25);
@@ -99,7 +99,7 @@
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblCategoria.Location = new System.Drawing.Point(47, 124);
+            this.lblCategoria.Location = new System.Drawing.Point(33, 43);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.lblCategoria.Size = new System.Drawing.Size(73, 17);
@@ -113,10 +113,10 @@
             this.rtxtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtxtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.rtxtDescripcion.Location = new System.Drawing.Point(17, 17);
+            this.rtxtDescripcion.Location = new System.Drawing.Point(18, 17);
             this.rtxtDescripcion.Name = "rtxtDescripcion";
             this.rtxtDescripcion.ReadOnly = true;
-            this.rtxtDescripcion.Size = new System.Drawing.Size(738, 131);
+            this.rtxtDescripcion.Size = new System.Drawing.Size(640, 131);
             this.rtxtDescripcion.TabIndex = 7;
             this.rtxtDescripcion.TabStop = false;
             this.rtxtDescripcion.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et augue tellus." +
@@ -145,14 +145,14 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.panel1.Controls.Add(this.rtxtDescripcion);
-            this.panel1.Location = new System.Drawing.Point(50, 442);
+            this.panel1.Location = new System.Drawing.Point(50, 339);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(774, 169);
+            this.panel1.Size = new System.Drawing.Size(680, 169);
             this.panel1.TabIndex = 8;
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(206, 151);
+            this.btnBack.Location = new System.Drawing.Point(496, 153);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(23, 257);
             this.btnBack.TabIndex = 0;
@@ -162,7 +162,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(597, 151);
+            this.btnNext.Location = new System.Drawing.Point(714, 153);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(23, 257);
             this.btnNext.TabIndex = 1;
@@ -172,9 +172,9 @@
             // 
             // pbxImagenes
             // 
-            this.pbxImagenes.Location = new System.Drawing.Point(235, 151);
+            this.pbxImagenes.Location = new System.Drawing.Point(525, 153);
             this.pbxImagenes.Name = "pbxImagenes";
-            this.pbxImagenes.Size = new System.Drawing.Size(356, 257);
+            this.pbxImagenes.Size = new System.Drawing.Size(183, 123);
             this.pbxImagenes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxImagenes.TabIndex = 13;
             this.pbxImagenes.TabStop = false;
