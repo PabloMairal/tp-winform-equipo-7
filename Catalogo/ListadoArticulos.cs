@@ -47,6 +47,8 @@ namespace Catalogo {
             Articulos = articuloNegocio.ListarArticulos();
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = Articulos;
+            FormatearColumnaPrecios();
+
         }
         private void ListadoArticulos_Load(object sender, EventArgs e)
         {
@@ -185,6 +187,18 @@ namespace Catalogo {
                 {
 
                     MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void FormatearColumnaPrecios()
+        {
+            foreach (DataGridViewRow row in dgvArticulos.Rows)
+            {
+                if (row.Cells["Precio"].Value != null && row.Cells["Precio"].Value != DBNull.Value)
+                {
+                    decimal valorDecimal = Convert.ToDecimal(row.Cells["Precio"].Value);
+                    row.Cells["Precio"].Value = valorDecimal.ToString("0.00");
                 }
             }
         }

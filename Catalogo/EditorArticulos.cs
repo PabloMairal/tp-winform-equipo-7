@@ -88,7 +88,7 @@ namespace Catalogo
                 cboMarca.SelectedValue = Articulo.Marca.Id;
                 cboCategoria.SelectedValue = Articulo.Categoria.Id;
                 txtCodigo.Text = Articulo.Codigo.ToString();
-                txtPrecio.Text = Articulo.Precio.ToString("N2");
+                txtPrecio.Text = Articulo.Precio.ToString("0.00");
                 if (Articulo.Imagenes.Count > 0)
                 {
                     txtUrl.Text = Articulo.Imagenes[0];
@@ -162,11 +162,6 @@ namespace Catalogo
                     Articulo.Imagenes.Remove(txtUrl.Text);
                     txtUrl.Text = "";
                 }
-                //else
-                //{
-                //    txtUrl.Text = "";
-                //    PlaceHolder();
-                //}
             }
             catch (Exception ex)
             {
@@ -288,9 +283,9 @@ namespace Catalogo
             }
 
             string precioEnteros = SoloEnteros();
-            if (precioEnteros.Length > 17)
+            if (precioEnteros.Length > 15)
             {
-                MessageBox.Show("El precio no debe tener más de 17 dígitos enteros.");
+                MessageBox.Show("El precio no debe tener más de 15 dígitos enteros.");
                 return false;
             }
 
