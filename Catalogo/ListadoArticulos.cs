@@ -42,7 +42,12 @@ namespace Catalogo {
                 OnDetailOpen(this, e);
             }
         }
-
+        private void RecargarLista()
+        {
+            Articulos = articuloNegocio.ListarArticulos();
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = Articulos;
+        }
         private void ListadoArticulos_Load(object sender, EventArgs e)
         {
             cboCampo.Items.Add("Nombre");
@@ -91,7 +96,7 @@ namespace Catalogo {
             dgvArticulos.DataSource = listaFiltrada;
         }
 
-        
+
 
         private void btnFiltro_Click(object sender, EventArgs e)
         {
@@ -108,34 +113,34 @@ namespace Catalogo {
 
                 MessageBox.Show(ex.ToString());
             }
-            
+
         }
 
         private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
             string opcion = cboCampo.SelectedItem.ToString();
-            if(opcion == "Nombre")
+            if (opcion == "Nombre")
             {
                 cboCriterio.Items.Clear();
                 cboCriterio.Items.Add("Comienza con");
                 cboCriterio.Items.Add("Termina con");
                 cboCriterio.Items.Add("Contiene");
             }
-            else if(opcion == "Codigo")
+            else if (opcion == "Codigo")
             {
                 cboCriterio.Items.Clear();
                 cboCriterio.Items.Add("Comienza con");
                 cboCriterio.Items.Add("Termina con");
                 cboCriterio.Items.Add("Contiene");
             }
-            else if(opcion == "Marca")
+            else if (opcion == "Marca")
             {
                 cboCriterio.Items.Clear();
                 cboCriterio.Items.Add("Comienza con");
                 cboCriterio.Items.Add("Termina con");
                 cboCriterio.Items.Add("Contiene");
             }
-            else if(opcion == "Categoria")
+            else if (opcion == "Categoria")
             {
                 cboCriterio.Items.Clear();
                 cboCriterio.Items.Add("Comienza con");
@@ -148,15 +153,40 @@ namespace Catalogo {
                 cboCriterio.Items.Add("Mayor a");
                 cboCriterio.Items.Add("Menor a");
                 cboCriterio.Items.Add("Igual a");
-            } 
+            }
         }
 
         private void ListadoArticulos_Enter(object sender, EventArgs e)
         {
-            Console.WriteLine("Entrando a ListadoArticulos");
-            Articulos = articuloNegocio.ListarArticulos();
-            dgvArticulos.DataSource = null;
-            dgvArticulos.DataSource = Articulos;
+            RecargarLista();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            {
+                if (dgvArticulos.CurrentRow == null)
+                {
+                    MessageBox.Show("Debe seleccionar un articulo");
+                    return;
+                }
+                DialogResult dialogResult = MessageBox.Show("¿Está seguro que desea eliminar el articulo?", "Eliminar", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+                try
+                {
+                    Articulo articulo = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    articuloNegocio.EliminarArticulo(articulo.Id);
+                    RecargarLista();
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
     }
 }
