@@ -88,7 +88,7 @@ namespace Catalogo
                 cboMarca.SelectedValue = Articulo.Marca.Id;
                 cboCategoria.SelectedValue = Articulo.Categoria.Id;
                 txtCodigo.Text = Articulo.Codigo.ToString();
-                txtPrecio.Text = Articulo.Precio.ToString();
+                txtPrecio.Text = Articulo.Precio.ToString("N2");
                 txtUrl.Text = Articulo.Imagenes[0];
             }
             else
@@ -276,6 +276,7 @@ namespace Catalogo
                 MessageBox.Show("El codigo del articulo excede la cantidad máxima de caracteres(50), por favor modifique el codigo.");
                 return false;
             }
+
             string precioSinComa = txtPrecio.Text.Replace(",", "");
             if (precioSinComa.Length > 19) 
             {
@@ -284,12 +285,18 @@ namespace Catalogo
             }
 
             string precioEnteros = SoloEnteros();
-            if (precioEnteros.Length > 15)
+            if (precioEnteros.Length > 17)
             {
-                MessageBox.Show("El precio no debe tener más de 15 dígitos enteros.");
+                MessageBox.Show("El precio no debe tener más de 17 dígitos enteros.");
                 return false;
             }
 
+            decimal precioDecimales = decimal.Parse(txtPrecio.Text) % 1;
+            if (precioDecimales.ToString().Replace(",", "").Length > 3)
+            {
+                MessageBox.Show("El precio excede la cantidad máxima de digitos decimales(2), por favor modifique el precio");
+                return false;
+            }
 
             return true;
         }
