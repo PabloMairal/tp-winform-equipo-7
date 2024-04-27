@@ -89,7 +89,10 @@ namespace Catalogo
                 cboCategoria.SelectedValue = Articulo.Categoria.Id;
                 txtCodigo.Text = Articulo.Codigo.ToString();
                 txtPrecio.Text = Articulo.Precio.ToString();
-                txtUrl.Text = Articulo.Imagenes[0];
+                if (Articulo.Imagenes.Count > 0)
+                {
+                    txtUrl.Text = Articulo.Imagenes[0];
+                }
             }
             else
             {
