@@ -120,10 +120,10 @@ namespace Negocio
                 {
                     switch(criterio)
                     {
-                        case "----":
+                        case "Comienza con":
                             consulta += "Nombre like '" + filtro + "%' ";
                             break;
-                        case "--":
+                        case "Termina con":
                             consulta += "Nombre like '%" + filtro + "'";
                             break;
                         default:

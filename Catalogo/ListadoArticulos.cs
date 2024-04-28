@@ -42,12 +42,26 @@ namespace Catalogo {
                 OnDetailOpen(this, e);
             }
         }
-        private void RecargarLista()
+        private void RecargarLista(List<Articulo> data = null)
         {
-            Articulos = articuloNegocio.ListarArticulos();
-            dgvArticulos.DataSource = null;
-            dgvArticulos.DataSource = Articulos;
-            FormatearColumnaPrecios();
+            try
+            {
+                dgvArticulos.DataSource = null;
+                if (data == null)
+                {
+                    Articulos = articuloNegocio.ListarArticulos();
+                    dgvArticulos.DataSource = Articulos;
+                }
+                else
+                {
+                    dgvArticulos.DataSource = data;
+                }
+                FormatearColumnaPrecios();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());      
+            }
 
         }
         private void ListadoArticulos_Load(object sender, EventArgs e)
@@ -87,39 +101,53 @@ namespace Catalogo {
 
             if (filtro.Length >= 2)
             {
-                listaFiltrada = Articulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()));
+                filtro = filtro.ToUpper();
+                listaFiltrada = Articulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro) 
+                || x.Categoria.Nombre.ToUpper().Contains(filtro) 
+                || x.Marca.Nombre.ToUpper().Contains(filtro)
+                || x.Codigo.ToUpper().Contains(filtro)
+                || x.Descripcion.ToUpper().Contains(filtro));
             }
             else
             {
                 listaFiltrada = Articulos;
             }
 
-            dgvArticulos.DataSource = null;
-            dgvArticulos.DataSource = listaFiltrada;
+            RecargarLista(listaFiltrada);
         }
 
 
 
         private void btnFiltro_Click(object sender, EventArgs e)
         {
-            ArticuloNegocio Articulos = new ArticuloNegocio();
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
+                if (cboCampo.SelectedItem == null || cboCriterio.SelectedItem == null || txtFiltroAvanzado.Text == "")
+                {
+                    MessageBox.Show("Debe completar todos los campos");
+                    return;
+                }
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
                 string filtro = txtFiltroAvanzado.Text;
-                dgvArticulos.DataSource = Articulos.filtrar(campo, criterio, filtro);
+                Articulos = articuloNegocio.filtrar(campo, criterio, filtro);
+                RecargarLista(Articulos);
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
+                RecargarLista();
             }
 
         }
 
         private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cboCampo.SelectedItem == null)
+            {
+                return;
+            }
             string opcion = cboCampo.SelectedItem.ToString();
             if (opcion == "Nombre")
             {
@@ -201,6 +229,18 @@ namespace Catalogo {
                     row.Cells["Precio"].Value = valorDecimal.ToString("0.00");
                 }
             }
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            if (cboCampo.SelectedItem == null && cboCriterio.SelectedItem == null && txtFiltroAvanzado.Text == "")
+            {
+                return;
+            }
+            cboCampo.SelectedItem = null;
+            cboCriterio.SelectedItem = null;
+            txtFiltroAvanzado.Text = "";
+            RecargarLista();
         }
     }
 }

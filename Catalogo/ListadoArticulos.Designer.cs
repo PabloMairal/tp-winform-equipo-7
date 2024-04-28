@@ -41,6 +41,7 @@
             this.cboCriterio = new System.Windows.Forms.ComboBox();
             this.lblFiltroAvanzado = new System.Windows.Forms.Label();
             this.txtFiltroAvanzado = new System.Windows.Forms.TextBox();
+            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,7 +148,7 @@
             this.btnFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltro.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.btnFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.btnFiltro.Location = new System.Drawing.Point(697, 618);
+            this.btnFiltro.Location = new System.Drawing.Point(665, 617);
             this.btnFiltro.Name = "btnFiltro";
             this.btnFiltro.Size = new System.Drawing.Size(75, 23);
             this.btnFiltro.TabIndex = 1;
@@ -181,7 +182,7 @@
             this.lblCriterio.AutoSize = true;
             this.lblCriterio.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblCriterio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblCriterio.Location = new System.Drawing.Point(301, 623);
+            this.lblCriterio.Location = new System.Drawing.Point(261, 623);
             this.lblCriterio.Name = "lblCriterio";
             this.lblCriterio.Size = new System.Drawing.Size(45, 14);
             this.lblCriterio.TabIndex = 15;
@@ -191,7 +192,7 @@
             // 
             this.cboCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriterio.FormattingEnabled = true;
-            this.cboCriterio.Location = new System.Drawing.Point(346, 620);
+            this.cboCriterio.Location = new System.Drawing.Point(312, 619);
             this.cboCriterio.Name = "cboCriterio";
             this.cboCriterio.Size = new System.Drawing.Size(121, 21);
             this.cboCriterio.TabIndex = 16;
@@ -201,7 +202,7 @@
             this.lblFiltroAvanzado.AutoSize = true;
             this.lblFiltroAvanzado.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblFiltroAvanzado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblFiltroAvanzado.Location = new System.Drawing.Point(549, 623);
+            this.lblFiltroAvanzado.Location = new System.Drawing.Point(494, 623);
             this.lblFiltroAvanzado.Name = "lblFiltroAvanzado";
             this.lblFiltroAvanzado.Size = new System.Drawing.Size(33, 14);
             this.lblFiltroAvanzado.TabIndex = 17;
@@ -209,10 +210,25 @@
             // 
             // txtFiltroAvanzado
             // 
-            this.txtFiltroAvanzado.Location = new System.Drawing.Point(584, 620);
+            this.txtFiltroAvanzado.Location = new System.Drawing.Point(533, 620);
             this.txtFiltroAvanzado.Name = "txtFiltroAvanzado";
             this.txtFiltroAvanzado.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroAvanzado.TabIndex = 18;
+            // 
+            // btnLimpiarFiltros
+            // 
+            this.btnLimpiarFiltros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
+            this.btnLimpiarFiltros.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(55)))));
+            this.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarFiltros.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.btnLimpiarFiltros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(761, 617);
+            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(23, 23);
+            this.btnLimpiarFiltros.TabIndex = 19;
+            this.btnLimpiarFiltros.Text = "X";
+            this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
             // 
             // ListadoArticulos
             // 
@@ -220,6 +236,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.ClientSize = new System.Drawing.Size(848, 688);
+            this.Controls.Add(this.btnLimpiarFiltros);
             this.Controls.Add(this.txtFiltroAvanzado);
             this.Controls.Add(this.lblFiltroAvanzado);
             this.Controls.Add(this.cboCriterio);
@@ -261,6 +278,7 @@
         private System.Windows.Forms.ComboBox cboCriterio;
         private System.Windows.Forms.Label lblFiltroAvanzado;
         private System.Windows.Forms.TextBox txtFiltroAvanzado;
+        private System.Windows.Forms.Button btnLimpiarFiltros;
     }
 }
 

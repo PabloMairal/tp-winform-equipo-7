@@ -70,16 +70,11 @@ namespace Catalogo
             }
         }
 
+
+
         private void EditorArticulos_Load(object sender, EventArgs e)
         {
-            MarcaNegocio MarcaNegocio = new MarcaNegocio();
-            cboMarca.DataSource = MarcaNegocio.ListarMarcas();
-            cboMarca.ValueMember = "Id";
-            cboMarca.DisplayMember = "Nombre";
-            CategoriaNegocio CategoriaNegocio = new CategoriaNegocio();
-            cboCategoria.DataSource = CategoriaNegocio.ListarCategorias();
-            cboCategoria.ValueMember = "Id";
-            cboCategoria.DisplayMember = "Nombre";
+            ListarMarcasYCategorias();
             PlaceHolder();
             if (Articulo != null)
             {
@@ -100,10 +95,31 @@ namespace Catalogo
             }
         }
 
+        private void ListarMarcasYCategorias()
+        {
+            try
+            {
+                MarcaNegocio MarcaNegocio = new MarcaNegocio();
+                cboMarca.DataSource = MarcaNegocio.ListarMarcas();
+                cboMarca.ValueMember = "Id";
+                cboMarca.DisplayMember = "Nombre";
+                CategoriaNegocio CategoriaNegocio = new CategoriaNegocio();
+                cboCategoria.DataSource = CategoriaNegocio.ListarCategorias();
+                cboCategoria.ValueMember = "Id";
+                cboCategoria.DisplayMember = "Nombre";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
         private void btnEditar_Click(object sender, EventArgs e)
         {
             MarcasCategorias MarcasCategorias = new MarcasCategorias("Marca");
             MarcasCategorias.ShowDialog();
+            ListarMarcasYCategorias();
 
         }
 
@@ -111,6 +127,7 @@ namespace Catalogo
         {
             MarcasCategorias MarcasCategorias = new MarcasCategorias("Categorias");
             MarcasCategorias.ShowDialog();
+            ListarMarcasYCategorias();
         }
 
 

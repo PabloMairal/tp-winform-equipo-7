@@ -49,7 +49,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblTitulo.Location = new System.Drawing.Point(120, 22);
+            this.lblTitulo.Location = new System.Drawing.Point(76, 40);
             this.lblTitulo.MaximumSize = new System.Drawing.Size(300, 31);
             this.lblTitulo.MinimumSize = new System.Drawing.Size(300, 31);
             this.lblTitulo.Name = "lblTitulo";
@@ -60,12 +60,12 @@
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblCodigo.Location = new System.Drawing.Point(33, 26);
+            this.lblCodigo.Location = new System.Drawing.Point(79, 22);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.lblCodigo.Size = new System.Drawing.Size(81, 17);
+            this.lblCodigo.Size = new System.Drawing.Size(64, 13);
             this.lblCodigo.TabIndex = 2;
             this.lblCodigo.Text = "Cod: XXXX";
             // 
@@ -87,7 +87,7 @@
             this.lblMarca.AutoSize = true;
             this.lblMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMarca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblMarca.Location = new System.Drawing.Point(121, 53);
+            this.lblMarca.Location = new System.Drawing.Point(77, 71);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.lblMarca.Size = new System.Drawing.Size(71, 25);
@@ -99,7 +99,7 @@
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.lblCategoria.Location = new System.Drawing.Point(33, 43);
+            this.lblCategoria.Location = new System.Drawing.Point(79, 96);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.lblCategoria.Size = new System.Drawing.Size(73, 17);
